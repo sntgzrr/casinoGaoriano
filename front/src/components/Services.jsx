@@ -1,3 +1,5 @@
+import { Sparkles } from "lucide-react"
+
 export function Services() {
     return (
         <section id="services" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
@@ -16,9 +18,26 @@ export function Services() {
                         <div className="bg-green-500 md:col-span-1 md:row-span-2">Piscina</div>
                         <div className="bg-yellow-500 md:col-span-1 md:row-span-2">Cara Cara</div>
                         <div className="bg-yellow-500 md:col-span-2 md:row-span-2">Casino Suboficiales</div>
-                        <div className="bg-yellow-500 md:col-span-3 md:row-span-2 h-50">Casino Oficiales</div>
+                        <div className="bg-yellow-500 md:col-span-3 md:row-span-15">Casino Oficiales</div>
                     </div>
                 </div>
+                        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+            <Sparkles className="text-amber-400 mb-4" size={32} />
+            <h4 className="text-xl font-bold text-amber-400 mb-2">Servicio VIP</h4>
+            <p className="text-gray-400">Atención personalizada las 24 horas del día para garantizar tu comodidad.</p>
+          </div>
+          <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+            <Sparkles className="text-amber-400 mb-4" size={32} />
+            <h4 className="text-xl font-bold text-amber-400 mb-2">Eventos Exclusivos</h4>
+            <p className="text-gray-400">Torneos, fiestas temáticas y presentaciones de artistas internacionales.</p>
+          </div>
+          <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+            <Sparkles className="text-amber-400 mb-4" size={32} />
+            <h4 className="text-xl font-bold text-amber-400 mb-2">Instalaciones Premium</h4>
+            <p className="text-gray-400">Espacios diseñados con los más altos estándares de lujo y confort.</p>
+          </div>
+        </div>
             </div>
         </section>
     )

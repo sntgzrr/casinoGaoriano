@@ -14,31 +14,44 @@ export function Services() {
                 </div>
                 <div>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3 h-200">
-                        <div className="bg-blue-500 md:row-span-4">Bar Tomo</div>
-                        <div className="bg-green-500 md:col-span-1 md:row-span-2">Piscina</div>
-                        <div className="bg-yellow-500 md:col-span-1 md:row-span-2">Cara Cara</div>
-                        <div className="bg-yellow-500 md:col-span-2 md:row-span-2">Casino Suboficiales</div>
-                        <div className="bg-yellow-500 md:col-span-3 md:row-span-15">Casino Oficiales</div>
+                        <div className="bg-blue-500 md:row-span-4 rounded-lg">Bar Tomo</div>
+                        <div className="bg-green-500 md:col-span-1 md:row-span-2 rounded-lg">Piscina</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-2 rounded-lg">Cara Cara</div>
+                        <div className="bg-yellow-500 md:col-span-2 md:row-span-2 rounded-lg">Casino Suboficiales</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg">Mall</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg">Casino Oficiales</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg">Bar Skyline</div>
                     </div>
                 </div>
-                        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
-            <Sparkles className="text-amber-400 mb-4" size={32} />
-            <h4 className="text-xl font-bold text-amber-400 mb-2">Servicio VIP</h4>
-            <p className="text-gray-400">Atención personalizada las 24 horas del día para garantizar tu comodidad.</p>
-          </div>
-          <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
-            <Sparkles className="text-amber-400 mb-4" size={32} />
-            <h4 className="text-xl font-bold text-amber-400 mb-2">Eventos Exclusivos</h4>
-            <p className="text-gray-400">Torneos, fiestas temáticas y presentaciones de artistas internacionales.</p>
-          </div>
-          <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
-            <Sparkles className="text-amber-400 mb-4" size={32} />
-            <h4 className="text-xl font-bold text-amber-400 mb-2">Instalaciones Premium</h4>
-            <p className="text-gray-400">Espacios diseñados con los más altos estándares de lujo y confort.</p>
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+                    <Sparkles className="text-amber-400 mb-4" size={32} />
+                    <h4 className="text-xl font-bold text-amber-400 mb-2">Servicio VIP</h4>
+                    <p className="text-gray-400">Atención personalizada las 24 horas del día para garantizar tu comodidad.</p>
+                </div>
+                <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+                    <Sparkles className="text-amber-400 mb-4" size={32} />
+                    <h4 className="text-xl font-bold text-amber-400 mb-2">Eventos Exclusivos</h4>
+                    <p className="text-gray-400">Torneos, fiestas temáticas y presentaciones de artistas internacionales.</p>
+                </div>
+                <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+                    <Sparkles className="text-amber-400 mb-4" size={32} />
+                    <h4 className="text-xl font-bold text-amber-400 mb-2">Instalaciones Premium</h4>
+                    <p className="text-gray-400">Espacios diseñados con los más altos estándares de lujo y confort.</p>
+                </div>
+            </div>
+        </div>
+        <div className="mt-12 bg-gradient-to-br from-amber-900/10 to-amber-950/10 p-8 rounded-xl border border-amber-900/30">
+          <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desenrranche</h3>
+          <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
+            Para realizar el desenrranche, por favor llena el formulario de desenrranche en nuestro sitio web. En caso de alguna duda, nuestro equipo estará encantado de asistirte y asegurarse de que tu experiencia sea inolvidable.
+          </p>
+          <div className="flex justify-center">
+            <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50">
+              Llenar Formulario de Desenrranche
+            </button>
           </div>
         </div>
-            </div>
         </section>
     )
 }

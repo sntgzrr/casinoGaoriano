@@ -9,10 +9,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-2">
-              <img src={LogoGaori} alt="Logo Gaoriano" className="w-10 h-10" />
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-              Casino Gaoriano
-            </h1>
+              <img src={LogoGaori} alt="Logo Gaoriano" className="w-13 h-13" />
           </div>
 
           {/* Desktop Navigation */}

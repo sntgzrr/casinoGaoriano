@@ -27,35 +27,35 @@ export function Services() {
                         <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Skyline</div>
                     </div>
                 </div>
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
-                    <Sparkles className="text-amber-400 mb-4" size={32} />
-                    <h4 className="text-xl font-bold text-amber-400 mb-2">Servicio VIP</h4>
-                    <p className="text-gray-400">Atención personalizada las 24 horas del día para garantizar tu comodidad.</p>
-                </div>
-                <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
-                    <Sparkles className="text-amber-400 mb-4" size={32} />
-                    <h4 className="text-xl font-bold text-amber-400 mb-2">Eventos Exclusivos</h4>
-                    <p className="text-gray-400">Torneos, fiestas temáticas y presentaciones de artistas internacionales.</p>
-                </div>
-                <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
-                    <Sparkles className="text-amber-400 mb-4" size={32} />
-                    <h4 className="text-xl font-bold text-amber-400 mb-2">Instalaciones Premium</h4>
-                    <p className="text-gray-400">Espacios diseñados con los más altos estándares de lujo y confort.</p>
+                <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+                        <Sparkles className="text-amber-400 mb-4" size={32} />
+                        <h4 className="text-xl font-bold text-amber-400 mb-2">Servicio VIP</h4>
+                        <p className="text-gray-400">Atención personalizada las 24 horas del día para garantizar tu comodidad.</p>
+                    </div>
+                    <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+                        <Sparkles className="text-amber-400 mb-4" size={32} />
+                        <h4 className="text-xl font-bold text-amber-400 mb-2">Eventos Exclusivos</h4>
+                        <p className="text-gray-400">Torneos, fiestas temáticas y presentaciones de artistas internacionales.</p>
+                    </div>
+                    <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
+                        <Sparkles className="text-amber-400 mb-4" size={32} />
+                        <h4 className="text-xl font-bold text-amber-400 mb-2">Instalaciones Premium</h4>
+                        <p className="text-gray-400">Espacios diseñados con los más altos estándares de lujo y confort.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div className="mt-12 bg-gradient-to-br from-amber-900/10 to-amber-950/10 p-8 rounded-xl border border-amber-900/30">
-          <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desarranche</h3>
-          <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
-            Para realizar el desarranche, por favor llena el formulario en nuestro sitio web. En caso de alguna duda, nuestro equipo estará en el casino encantado de asistirte.
-          </p>
-          <div className="flex justify-center">
-            <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50">
-              Llenar Formulario Desarranche
-            </button>
-          </div>
-        </div>
+            <div className="mt-12 bg-gradient-to-br from-amber-900/10 to-amber-950/10 p-8 rounded-xl border border-amber-900/30">
+                <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desarranche</h3>
+                <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
+                    Para realizar el desarranche, por favor llena el formulario en nuestro sitio web. En caso de alguna duda, nuestro equipo estará en el casino encantado de asistirte.
+                </p>
+                <div className="flex justify-center">
+                    <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50">
+                        Llenar Formulario Desarranche
+                    </button>
+                </div>
+            </div>
         </section>
     )
 }

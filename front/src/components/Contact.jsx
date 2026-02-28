@@ -21,7 +21,7 @@ export function Contact({ direction, phone, email, schedule }) {
                     </div>
                     <h3 className="text-xl font-bold text-amber-400 mb-2">Dirección</h3>
                     <p className="text-gray-300">
-                        { direction }
+                        {direction}
                     </p>
                 </div>
 
@@ -31,7 +31,7 @@ export function Contact({ direction, phone, email, schedule }) {
                     </div>
                     <h3 className="text-xl font-bold text-amber-400 mb-2">Teléfono</h3>
                     <p className="text-gray-300">
-                        { phone }
+                        {phone}
                     </p>
                 </div>
 
@@ -41,7 +41,7 @@ export function Contact({ direction, phone, email, schedule }) {
                     </div>
                     <h3 className="text-xl font-bold text-amber-400 mb-2">Email</h3>
                     <p className="text-gray-300">
-                        { email }
+                        {email}
                     </p>
                 </div>
 
@@ -51,7 +51,7 @@ export function Contact({ direction, phone, email, schedule }) {
                     </div>
                     <h3 className="text-xl font-bold text-amber-400 mb-2">Horario</h3>
                     <p className="text-gray-300">
-                        { schedule }
+                        {schedule}
                     </p>
                 </div>
             </div>

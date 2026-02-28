@@ -46,13 +46,13 @@ export function Services() {
             </div>
         </div>
         <div className="mt-12 bg-gradient-to-br from-amber-900/10 to-amber-950/10 p-8 rounded-xl border border-amber-900/30">
-          <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desanrranche</h3>
+          <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desarranche</h3>
           <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
-            Para realizar el desanrranche, por favor llena el formulario en nuestro sitio web. En caso de alguna duda, nuestro equipo estará encantado de asistirte y asegurarse de que tu experiencia sea inolvidable.
+            Para realizar el desarranche, por favor llena el formulario en nuestro sitio web. En caso de alguna duda, nuestro equipo estará en el casino encantado de asistirte.
           </p>
           <div className="flex justify-center">
             <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50">
-              Llenar Formulario Desanrranche
+              Llenar Formulario Desarranche
             </button>
           </div>
         </div>

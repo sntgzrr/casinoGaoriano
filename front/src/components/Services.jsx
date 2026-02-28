@@ -1,16 +1,18 @@
 import { useNavigate } from "react-router-dom"
 import { Sparkles } from "lucide-react"
+import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation"
 
 export function Services() {
     const navigate = useNavigate()
+    const container = useSplitTextAnimation();
     return (
-        <section id="services" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
+        <section id="services" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900" ref={container}>
             <div className="container mx-auto max-w-7xl">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
+                    <h2 className="split-text-chars text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
                         Nuestros Servicios
                     </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                    <p className="split-text-words text-gray-400 text-lg max-w-2xl mx-auto">
                         Experimenta lo mejor en entretenimiento, gastronomía y relajación
                     </p>
                 </div>
@@ -46,11 +48,11 @@ export function Services() {
         <div className="mt-12 bg-gradient-to-br from-amber-900/10 to-amber-950/10 p-8 rounded-xl border border-amber-900/30">
           <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desanrranche</h3>
           <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
-            Para realizar el desanrranche, por favor llena el formulario de desanrranche en nuestro sitio web. En caso de alguna duda, nuestro equipo estará encantado de asistirte y asegurarse de que tu experiencia sea inolvidable.
+            Para realizar el desanrranche, por favor llena el formulario en nuestro sitio web. En caso de alguna duda, nuestro equipo estará encantado de asistirte y asegurarse de que tu experiencia sea inolvidable.
           </p>
           <div className="flex justify-center">
             <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50">
-              Llenar Formulario de Desanrranche
+              Llenar Formulario Desanrranche
             </button>
           </div>
         </div>

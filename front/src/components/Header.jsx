@@ -1,15 +1,16 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import LogoGaori from "../assets/logo_gaori.png";
+import  { useNavigate } from "react-router-dom";
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-amber-900/30">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-2">
-              <img src={LogoGaori} alt="Logo Gaoriano" className="w-13 h-13" />
+              <img onClick={() => navigate('/')} src={LogoGaori} alt="Logo Gaoriano" className="w-13 h-13 cursor-pointer"/>
           </div>
 
           {/* Desktop Navigation */}

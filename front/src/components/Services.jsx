@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom"
 import { Sparkles } from "lucide-react"
 
 export function Services() {
+    const navigate = useNavigate()
     return (
         <section id="services" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900">
             <div className="container mx-auto max-w-7xl">
@@ -14,13 +16,13 @@ export function Services() {
                 </div>
                 <div>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3 h-200">
-                        <div className="bg-blue-500 md:row-span-4 rounded-lg">Bar Tomo</div>
-                        <div className="bg-green-500 md:col-span-1 md:row-span-2 rounded-lg">Piscina</div>
-                        <div className="bg-yellow-500 md:col-span-1 md:row-span-2 rounded-lg">Cara Cara</div>
-                        <div className="bg-yellow-500 md:col-span-2 md:row-span-2 rounded-lg">Casino Suboficiales</div>
-                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg">Mall</div>
-                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg">Casino Oficiales</div>
-                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg">Bar Skyline</div>
+                        <div onClick={() => navigate('/barTomo')} className="bg-blue-500 md:row-span-4 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors">Bar Tomo</div>
+                        <div className="bg-green-500 md:col-span-1 md:row-span-2 rounded-lg cursor-pointer hover:bg-green-600 transition-colors">Piscina</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-2 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Cara Cara</div>
+                        <div className="bg-yellow-500 md:col-span-2 md:row-span-2 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Casino Suboficiales</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Mall</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Casino Oficiales</div>
+                        <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Skyline</div>
                     </div>
                 </div>
             <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -42,13 +44,13 @@ export function Services() {
             </div>
         </div>
         <div className="mt-12 bg-gradient-to-br from-amber-900/10 to-amber-950/10 p-8 rounded-xl border border-amber-900/30">
-          <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desenrranche</h3>
+          <h3 className="text-2xl font-bold text-amber-400 mb-4 text-center">Desanrranche</h3>
           <p className="text-gray-300 text-center mb-6 max-w-2xl mx-auto">
-            Para realizar el desenrranche, por favor llena el formulario de desenrranche en nuestro sitio web. En caso de alguna duda, nuestro equipo estará encantado de asistirte y asegurarse de que tu experiencia sea inolvidable.
+            Para realizar el desanrranche, por favor llena el formulario de desanrranche en nuestro sitio web. En caso de alguna duda, nuestro equipo estará encantado de asistirte y asegurarse de que tu experiencia sea inolvidable.
           </p>
           <div className="flex justify-center">
             <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50">
-              Llenar Formulario de Desenrranche
+              Llenar Formulario de Desanrranche
             </button>
           </div>
         </div>

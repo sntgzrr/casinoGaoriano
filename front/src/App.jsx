@@ -1,18 +1,13 @@
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { Services } from './components/Services'
-import { Footer } from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { BarTomo } from './pages/BarTomo'
 function App() {
 
   return (
-    <div className='min-h-screen bg-black text-white'>
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path='/barTomo' element={<BarTomo />} />
+    </Routes>
   )
 }
 

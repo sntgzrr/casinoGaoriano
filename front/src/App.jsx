@@ -1,14 +1,8 @@
-import { Routes, Route } from 'react-router-dom'
-import { Home } from './pages/Home'
-import { BarTomo } from './pages/BarTomo'
-function App() {
+import { PageRoutes } from "./routes/PageRoutes"
 
+function App() {
   return (
-    <Routes>
-      <Route index element={<Home />} />
-      <Route path='/barTomo' element={<BarTomo />} />
-    </Routes>
+    <PageRoutes />
   )
 }
-
 export default App

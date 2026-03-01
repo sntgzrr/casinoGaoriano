@@ -11,11 +11,15 @@ export function Header() {
   const timeoutRef = useRef(null);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (window.location.hash !== `#${id}`) {
+      navigate(`/#${id}`);
       setIsMenuOpen(false);
       setIsServicesOpen(false);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -65,7 +69,9 @@ export function Header() {
                 </div>
               )}
             </div>
-            <button className="text-gray-300 hover:text-amber-400 transition-colors flex items-center space-x-1 cursor-pointer">
+            <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
+              onClick={() => scrollToSection('informacion')}
+            >
               Información
             </button>
           </nav>
@@ -84,7 +90,7 @@ export function Header() {
         {isMenuOpen && (
           <nav className="md:hidden pb-4 space-y-2">
             <button
-              onClick={() => scrollToSection("inicio")}
+              onClick={() => navigate('/')}
               className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
             >
               Inicio
@@ -112,7 +118,9 @@ export function Header() {
                   ))}
                 </div>
               )}
-              <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors">
+              <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
+                onClick={() => scrollToSection('informacion')}
+              >
                 Información
               </button>
             </div>

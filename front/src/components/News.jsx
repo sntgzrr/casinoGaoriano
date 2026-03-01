@@ -5,7 +5,7 @@ import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
 export function News() {
     const container = useSplitTextAnimation();
     return (
-        <section id="noticias" ref={container} className="py-20 px-4 bg-gray-900">
+        <section id="informacion" ref={container} className="py-20 px-4 bg-gray-900">
             <div className="container mx-auto max-w-7xl">
                 <div className="text-center mb-16">
                     <div className="flex items-center justify-center space-x-2 mb-4">

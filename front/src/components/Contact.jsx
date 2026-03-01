@@ -4,7 +4,7 @@ import { useSplitTextAnimation } from '../hooks/useSplitTextAnimation'
 export function Contact({ direction, phone, email, schedule }) {
     const container = useSplitTextAnimation();
     return (
-        <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900" ref={container}>
+        <section className="py-20 px-4 bg-gray-900" ref={container}>
             <div className="text-center mb-12">
                 <h2 className="split-text-chars text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
                     Contáctanos

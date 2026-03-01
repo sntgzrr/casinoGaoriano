@@ -4,7 +4,7 @@ import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
 export function Hero() {
   const container = useSplitTextAnimation();
   return (
-    <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden" ref={container}>
+    <section className="relative h-screen flex items-center justify-center overflow-hidden" ref={container}>
       <div className="absolute inset-0">
         <img src={GaoriAniversario} alt="Gaori Aniversario" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>

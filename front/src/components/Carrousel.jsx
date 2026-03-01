@@ -1,10 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
 
-export function Carrousel({ title, description, images }) {
+export function Carrousel({ images }) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const intervalRef = useRef(null);
-    const container = useSplitTextAnimation();
 
     const startAuto = () => {
         stopAuto();
@@ -36,22 +34,12 @@ export function Carrousel({ title, description, images }) {
     };
 
     return (
-        <section className="py-20 px-4" ref={container}>
-            <div className='container mx-auto max-w-7xl'>
-                <div className='text-center mb-16 mt-10'>
-                    <h2 className="split-text-chars text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-                        {title}
-                    </h2>
-                    <p className="split-text-words text-gray-400 text-lg max-w-2xl mx-auto">
-                        {description}
-                    </p>
-                </div>
-            </div>
-            <div className='mh-200 w-full flex items-center justify-center my-8 rounded-lg bg-gradient-to-br from-amber-900/10 to-amber-950/10 p-8 rounded-xl border border-amber-900/30'>
-                <div className='h-100 w-3/4 overflow-hidden relative rounded-lg' onMouseEnter={stopAuto} onMouseLeave={startAuto}>
+        <section className="relative">
+            <div className='mh-200 w-full flex items-center justify-center my-8'>
+                <div className='h-full w-full overflow-hidden relative rounded-lg' onMouseEnter={stopAuto} onMouseLeave={startAuto}>
                     <div className='flex transition-transform duration-500' style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                         {images.map((src, idx) => (
-                            <div key={idx} className='h-100 w-full flex-shrink-0'>
+                            <div key={idx} className='h-full w-full flex-shrink-0'>
                                 <img src={src} alt={`Slide ${idx + 1}`} className='h-full w-full object-cover' />
                             </div>
                         ))}

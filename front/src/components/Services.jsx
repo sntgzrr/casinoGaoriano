@@ -6,7 +6,7 @@ export function Services() {
     const navigate = useNavigate()
     const container = useSplitTextAnimation();
     return (
-        <section id="services" className="py-20 px-4 bg-gradient-to-b from-black to-gray-900" ref={container}>
+        <section id="services" className="py-20 px-4 bg-gray-900" ref={container}>
             <div className="container mx-auto max-w-7xl">
                 <div className="text-center mb-16">
                     <h2 className="split-text-chars text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">

@@ -3,7 +3,7 @@ import { useSplitTextAnimation } from '../hooks/useSplitTextAnimation'
 export function General({ title, description }) {
     const container = useSplitTextAnimation();
     return (
-        <section className='py-20 px-4 ' ref={container}>
+        <section className='py-20 px-4' ref={container}>
             <div className='container mx-auto max-w-7xl'>
                 <div className='text-center mb-16 mt-10'>
                     <h2 className="split-text-chars text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">

@@ -1,6 +1,7 @@
 import { Header } from '../components/Header'
 import { General } from '../components/General'
 import { Contact } from '../components/Contact'
+import { NewsSection } from '../components/NewsSection'
 import { Footer } from '../components/Footer'
 
 export function Piscina() {
@@ -9,6 +10,7 @@ export function Piscina() {
             <Header />
             <main>
                 <General title="Piscina" description="Disfruta de nuestra piscina para relajarte y divertirte con amigos." />
+                <NewsSection section="Piscina" />
                 <Contact direction="Primer Piso Casino" phone="31111" email="piscina@gaoriano.com" schedule="Lunes a Viernes 10:00 - 22:00"/>
             </main>
             <Footer />

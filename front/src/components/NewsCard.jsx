@@ -1,4 +1,4 @@
-import { Calendar, ArrowRight } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 export function NewsCard({ imageUrl, imageAlt, category, date, title, description }) {
     return (

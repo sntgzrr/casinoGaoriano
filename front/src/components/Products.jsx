@@ -80,11 +80,6 @@ export function Products({title, description}) {
                             Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico.
                             Aceptamos únicamente tarjetas de débito. Entregas disponibles dentro de la base.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50">
-                                Ver Catálogo Completo
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>

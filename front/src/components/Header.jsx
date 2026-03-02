@@ -36,7 +36,8 @@ export function Header() {
 
   const services = [
     { id: "/barTomo", name: "Bar Tomo" },
-    { id:"/piscina", name: "Piscina" }
+    { id:"/piscina", name: "Piscina" },
+    { id:"/caraCara", name: "Cara Cara" },
   ];
 
   return (

@@ -4,6 +4,7 @@ import { Services } from '../components/Services'
 import { News } from '../components/News'
 import { Footer } from '../components/Footer'
 import { ScrollToInfo } from '../utils/ScrollToInfo'
+import newsData from '../mocks/newsData.json'
 
 export function Home() {
   return (
@@ -13,7 +14,7 @@ export function Home() {
         <ScrollToInfo />
         <Hero />
         <Services />
-        <News />
+        <News news={newsData} />
       </main>
       <Footer />
     </div>

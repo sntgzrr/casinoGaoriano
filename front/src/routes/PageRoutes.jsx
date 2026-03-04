@@ -3,6 +3,7 @@ import { Home } from '../pages/Home'
 import { BarTomo } from '../pages/BarTomo'
 import { Piscina } from '../pages/Piscina'
 import { CaraCara } from '../pages/CaraCara'
+import { Mall } from '../pages/Mall'
 
 export function PageRoutes() {
     return (
@@ -11,6 +12,7 @@ export function PageRoutes() {
             <Route path='/barTomo' element={<BarTomo />} />
             <Route path='/piscina' element={<Piscina />} />
             <Route path='/caraCara' element={<CaraCara />} />
+            <Route path='/mall' element={<Mall />} />
         </Routes>
     )
 }

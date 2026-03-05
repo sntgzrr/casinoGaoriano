@@ -18,7 +18,13 @@ export function Mall () {
                     infoBannerTitle="Compra" 
                     infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjetas débito." />
                 <NewsSection section="Mall" />
-                <Contact direction="Primer Piso Casino" phone="31111" email="mall@gaoriano.com" schedule="Lunes a Viernes 10:00 - 22:00 Domingos 10:00 - 18:00" />
+                <Contact 
+                    direction="Primer Piso Casino" 
+                    phone="31111" 
+                    contact="ESALO" 
+                    schedule="L-V: 10:00 - 22:00 D: 10:00 - 18:00" 
+                    showContact={false}
+                />
             </main>
             <Footer />
         </div>

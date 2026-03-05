@@ -18,7 +18,13 @@ export function CaraCara() {
                     infoBannerTitle="Compra" 
                     infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente Nequi." />
                 <NewsSection section="Cara Cara" />
-                <Contact direction="Primer Piso Casino" phone="31111" email="caraCara@gaoriano.com" schedule="Lunes a Viernes 10:00 - 22:00" />
+                <Contact 
+                    direction="Primer Piso Casino" 
+                    phone="31111" 
+                    contact="ESALO" 
+                    schedule="L-V 10:00 - 22:00" 
+                    showPhone={false}
+                />
             </main>
             <Footer />
         </div>

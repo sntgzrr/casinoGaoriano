@@ -11,7 +11,13 @@ export function Piscina() {
             <main>
                 <General title="Piscina" description="Disfruta de nuestra piscina para relajarte y divertirte con amigos." />
                 <NewsSection section="Piscina" />
-                <Contact direction="Primer Piso Casino" phone="31111" email="piscina@gaoriano.com" schedule="Lunes a Viernes 10:00 - 22:00"/>
+                <Contact 
+                    direction="Primer Piso Casino" 
+                    phone="31111"
+                    contact="SETGA"
+                    schedule="L-D 10:00 - 22:00"
+                    showPhone={false}
+                />
             </main>
             <Footer />
         </div>

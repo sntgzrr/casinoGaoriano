@@ -18,7 +18,13 @@ export function BarTomo() {
                     infoBannerTitle="Compra para Miembros" 
                     infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjetas de débito."/>
                 <NewsSection section="Bar Tomo" />
-                <Contact direction="Segundo Piso Casino" phone="+1 (555) 123-4567" email="info@bartomo.com" schedule="Lunes a Viernes: 10:00 AM - 12:00 AM Sábado y Domingo: 12:00 PM - 2:00 AM" />
+                <Contact 
+                    direction="Segundo Piso Casino" 
+                    phone="+1 (555) 123-4567" 
+                    contact="ESALO" 
+                    schedule="L-V: 10:00 AM - 12:00 AM S-D: 12:00 PM - 2:00 AM" 
+                    showPhone={false}
+                />
             </main>
             <Footer />
         </div>

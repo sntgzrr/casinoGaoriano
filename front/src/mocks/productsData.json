@@ -51,12 +51,12 @@
         "badge": "Nuevo"
     },
      {
-        "name": "Merchandising",
+        "name": "Lunes",
         "description": "Artículos oficiales del Casino: camisetas, gorras, tazas y otros productos con el emblema institucional.",
-        "price": "$18.00",
+        "price": "$20.00",
         "imageUrl": "https://images.unsplash.com/photo-1628136473110-6e95a86f4b81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWxpdGFyeSUyMG1lcmNoYW5kaXNlJTIwcHJvZHVjdHN8ZW58MXx8fHwxNzcyMzc5NjMwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-        "imageAlt": "Merchandising",
+        "imageAlt": "Lunes",
         "category": "Mall",
-        "badge": "Nuevo"
+        "badge": "Arranche"
     }
 ]

@@ -21,7 +21,7 @@ export function Services() {
                         <div onClick={() => navigate('/barTomo')} className="bg-blue-500 md:row-span-4 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors">Bar Tomo</div>
                         <div onClick={() => navigate('/piscina')} className="bg-green-500 md:col-span-1 md:row-span-2 rounded-lg cursor-pointer hover:bg-green-600 transition-colors">Piscina</div>
                         <div onClick={() => navigate('/caraCara')} className="bg-yellow-500 md:col-span-1 md:row-span-2 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Cara Cara</div>
-                        <div onClick={() => navigate('/comedores')} className="bg-yellow-500 md:col-span-2 md:row-span-7 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Comedor Oficiales/Suboficiales</div>
+                        <div onClick={() => navigate('/casinos')} className="bg-yellow-500 md:col-span-2 md:row-span-7 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Comedor Oficiales/Suboficiales</div>
                         <div onClick={() => navigate('/mall')} className="bg-yellow-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Mall</div>
                         <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Arpía</div>
                         <div className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Skyline</div>

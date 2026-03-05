@@ -13,8 +13,8 @@ export function Casinos() {
             <Header />
             <main>
                 <General 
-                    title="Comedores" 
-                    description="Disfruta de las comidas gaorianas en nuestros comedores." 
+                    title="Casinos" 
+                    description="Disfruta de las comidas gaorianas en nuestros Casinos." 
                     images={[Gaori, Gaori]}
                 />
                 <Products title="Menú" description="Descubre nuestra selección de platos exquisitos."

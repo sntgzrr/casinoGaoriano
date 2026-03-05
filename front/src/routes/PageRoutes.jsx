@@ -14,7 +14,7 @@ export function PageRoutes() {
             <Route path='/piscina' element={<Piscina />} />
             <Route path='/caraCara' element={<CaraCara />} />
             <Route path='/mall' element={<Mall />} />
-            <Route path='/comedores' element={<Casinos />} />
+            <Route path='/casinos' element={<Casinos />} />
         </Routes>
     )
 }

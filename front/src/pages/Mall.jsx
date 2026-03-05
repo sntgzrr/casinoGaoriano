@@ -5,13 +5,18 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import productsData from '../mocks/productsData.json'
+import Gaori from "../assets/gaori_aniversario.jpg";
 
 export function Mall () {
     return (
         <div className='min-h-screen bg-black text-white'>
             <Header />
             <main>
-                <General title="Mall" description="Disfruta de una cena todos los días en nuestro Mall." />
+                <General 
+                    title="Mall" 
+                    description="Disfruta de una cena todos los días en nuestro Mall." 
+                    images={[Gaori, Gaori]}
+                />
                 <Products title="Menú" description="Descubre nuestra selección de platos exquisitos."
                     products={productsData.filter(item => item.category === "Mall")} 
                     infoBanner={true} 

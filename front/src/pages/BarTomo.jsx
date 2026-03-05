@@ -5,13 +5,18 @@ import { General } from '../components/General';
 import { Products } from '../components/Products';
 import { NewsSection } from '../components/NewsSection';
 import productsData from '../mocks/productsData.json'
+import Gaori from "../assets/gaori_aniversario.jpg";
 
 export function BarTomo() {
     return (
         <div className='min-h-screen bg-black text-white'>
             <Header />
             <main>
-                <General title="Bar Tomo" description="Bar Tomo es el lugar perfecto para disfrutar de una experiencia única en el Casino Gaoriano. Disfruta de una amplia selección de productos."/>
+                <General 
+                    title="Bar Tomo" 
+                    description="Bar Tomo es el lugar perfecto para disfrutar de una experiencia única en el Casino Gaoriano. Disfruta de una amplia selección de productos."
+                    images={[Gaori, Gaori]}
+                />
                 <Products title="Productos" description="Descubre nuestra selección exclusiva de productos y bebidas." 
                     products={productsData.filter(item => item.category === "BarTomo")} 
                     infoBanner={true}

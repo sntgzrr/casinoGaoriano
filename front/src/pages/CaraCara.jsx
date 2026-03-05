@@ -5,13 +5,18 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import productsData from '../mocks/productsData.json'
+import Gaori from "../assets/gaori_aniversario.jpg";
 
 export function CaraCara() {
     return (
         <div className='min-h-screen bg-black text-white'>
             <Header />
             <main>
-                <General title="Cara Cara" description="Disfruta de nuestra zona de comidas Cara Cara para comer deliciosos platos a la carta." />
+                <General 
+                    title="Cara Cara" 
+                    description="Disfruta de nuestra zona de comidas Cara Cara para comer deliciosos platos a la carta."
+                    images={[Gaori, Gaori]}
+                />
                 <Products title="Cara Cara" description="Descubre nuestra selección de platos exquisitos y bebidas refrescantes."
                     products={productsData.filter(item => item.category === "CaraCara")} 
                     infoBanner={true} 

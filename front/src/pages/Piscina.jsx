@@ -3,13 +3,18 @@ import { General } from '../components/General'
 import { Contact } from '../components/Contact'
 import { NewsSection } from '../components/NewsSection'
 import { Footer } from '../components/Footer'
+import Gaori from "../assets/gaori_aniversario.jpg";
 
 export function Piscina() {
     return (
         <div className='min-h-screen bg-black text-white'>
             <Header />
             <main>
-                <General title="Piscina" description="Disfruta de nuestra piscina para relajarte y divertirte con amigos." />
+                <General 
+                    title="Piscina" 
+                    description="Disfruta de nuestra piscina para relajarte y divertirte con amigos." 
+                    images={[Gaori, Gaori]}
+                />
                 <NewsSection section="Piscina" />
                 <Contact 
                     direction="Primer Piso Casino" 

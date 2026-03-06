@@ -14,7 +14,7 @@ export function Contact({
     const container = useSplitTextAnimation();
 
     return (
-        <section className="px-4 bg-gray-900" ref={container}>
+        <section className="py-20 px-4 bg-gray-900" ref={container}>
             <div className="max-w-6xl mx-auto text-center mb-12">
                 <h2 className="split-text-chars text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
                     Contáctanos

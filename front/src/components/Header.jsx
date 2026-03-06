@@ -39,7 +39,9 @@ export function Header() {
     { id:"/piscina", name: "Piscina" },
     { id:"/caraCara", name: "Cara Cara" },
     { id:"/mall", name: "Mall" },
-    { id: "/casinos", name: "Casinos" }
+    { id: "/casinos", name: "Casinos" },
+    { id: "/barArpia", name: "Bar Arpía" },
+    { id:"/barSkyline", name: "Bar Skyline" }
   ];
 
   return (

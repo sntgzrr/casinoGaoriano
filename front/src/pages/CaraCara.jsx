@@ -27,7 +27,7 @@ export function CaraCara() {
                     direction="Primer Piso Casino" 
                     phone="31111" 
                     contact="ESALO" 
-                    schedule="L-V 10:00 - 22:00" 
+                    schedule="J: 18:00 - 21:00 / V: 18:00 - 21:00" 
                     showPhone={false}
                 />
             </main>

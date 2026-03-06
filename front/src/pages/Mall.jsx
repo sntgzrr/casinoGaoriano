@@ -27,7 +27,7 @@ export function Mall () {
                     direction="Primer Piso Casino" 
                     phone="31111" 
                     contact="ESALO" 
-                    schedule="L-V: 10:00 - 22:00 D: 10:00 - 18:00" 
+                    schedule="L-D: 18:00 - 21:00" 
                     showContact={false}
                 />
             </main>

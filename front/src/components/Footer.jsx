@@ -8,7 +8,7 @@ export function Footer() {
           <div className="flex items-center space-x-2">
             <img src={LogoGaori} alt="Logo Gaoriano" className="w-10 h-10" />
             <span className="text-lg font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-              Casino Gaoriano
+              Gaoriano
             </span>
           </div>
 

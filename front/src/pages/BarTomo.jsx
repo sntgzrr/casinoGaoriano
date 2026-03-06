@@ -27,7 +27,7 @@ export function BarTomo() {
                     direction="Segundo Piso Casino" 
                     phone="+1 (555) 123-4567" 
                     contact="ESALO" 
-                    schedule="L-V: 10:00 AM - 12:00 AM S-D: 12:00 PM - 2:00 AM" 
+                    schedule="L-V: 13:00 - 15:00 / 18:00 - 21:00 S-D: 8:00 - 21:00" 
                     showPhone={false}
                 />
             </main>

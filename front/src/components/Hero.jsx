@@ -12,8 +12,8 @@ export function Hero() {
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <h2 className="split-text-chars text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent">
-          Bienvenid@ al<br />
-          Casino Gaoriano
+          Bienvenid@<br />
+          Gaoriano
         </h2>
         <button
           onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}

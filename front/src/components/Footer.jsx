@@ -28,7 +28,7 @@ export function Footer() {
 
         <div className="mt-6 text-center">
           <p className="text-gray-500 text-xs">
-            ESALO - Creado por: @sntgzrr
+            ESALO - v1.0 Creado por: @sntgzrr
           </p>
         </div>
       </div>

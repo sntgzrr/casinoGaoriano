@@ -86,7 +86,7 @@ export function Header() {
               </button>
               <button
                 onClick={() => setIsLoginOpen(true)}
-                className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30"
+                className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
                 style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
               >
                 <LogIn size={15} />

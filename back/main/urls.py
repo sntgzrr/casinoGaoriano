@@ -1,5 +1,5 @@
 """
-URL configuration for src project.
+URL configuration for main project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from news.views import hello
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', hello)
 ]

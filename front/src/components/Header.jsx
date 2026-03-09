@@ -44,7 +44,8 @@ export function Header() {
     { id: "/mall", name: "Mall" },
     { id: "/casinos", name: "Casinos" },
     { id: "/barArpia", name: "Bar Arpía" },
-    { id: "/barSkyline", name: "Bar Skyline" }
+    { id: "/barSkyline", name: "Bar Skyline" },
+    { id: "/panel-de-control", name: "Panel de Control" }
   ];
 
   return (
@@ -83,6 +84,11 @@ export function Header() {
                 onClick={() => scrollToSection('informacion')}
               >
                 Información
+              </button>
+              <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
+                onClick={() => navigate('/panel-de-control')}
+              >
+                Panel de Control
               </button>
               <button
                 onClick={() => setIsLoginOpen(true)}

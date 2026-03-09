@@ -1,0 +1,1 @@
+export const DOMAIN_BACK_NAME = 'http://localhost:8000' 

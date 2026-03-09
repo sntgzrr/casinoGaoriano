@@ -4,9 +4,12 @@ import { Services } from '../components/Services'
 import { News } from '../components/News'
 import { Footer } from '../components/Footer'
 import { ScrollToInfo } from '../utils/ScrollToInfo'
-import newsData from '../mocks/newsData.json'
+import { useFetchingNewsData } from '../hooks/useFetchingData'
+
 
 export function Home() {
+  const { news } = useFetchingNewsData();
+
   return (
     <div className='min-h-screen bg-black text-white'>
       <Header />
@@ -14,7 +17,7 @@ export function Home() {
         <ScrollToInfo />
         <Hero />
         <Services />
-        <News news={newsData} />
+        <News news={news} />
       </main>
       <Footer />
     </div>

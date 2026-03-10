@@ -4,6 +4,8 @@ from rest_framework_simplejwt.views import (
 )
 
 from rest_framework.response import Response
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class CustomTokenObtainPairView(TokenObtainPairView):
@@ -60,3 +62,19 @@ class CustomRefreshTokenView(TokenRefreshView):
             return res
         except:
             return Response({'refreshed': False})
+        
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def is_authenticated(request):
+    return Response({'is_authenticated': True})
+        
+@api_view(['POST'])
+def log_out(request):
+    try:
+        res = Response()
+        res.data = {'logged_out': True}
+        res.delete_cookie('access_token', path='/', samesite='None')
+        res.delete_cookie('refresh_token', path='/', samesite='None')
+        return res
+    except:
+        return Response({'logged_out': False})

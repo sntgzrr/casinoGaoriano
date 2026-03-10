@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DOMAIN_BACK_NAME } from './Constants';
+import { DOMAIN_BACK_NAME } from '../Constants';
 
 export async function getNews() {
     try {

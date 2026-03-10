@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X, Eye, EyeOff, Lock, User, AlertCircle, CheckCircle } from "lucide-react";
 import LogoGaori from "../assets/logo_gaori.png";
+import { login } from "../utils/api/Auth";
 
 export function LoginModal({ isOpen, onClose }) {
     const [view, setView] = useState("login");
@@ -35,14 +36,16 @@ export function LoginModal({ isOpen, onClose }) {
         }
         setIsLoading(true);
         setTimeout(() => {
-            setIsLoading(false);
-            // Simulate invalid credentials for demo
-            if (loginId !== "demo" || loginPassword !== "demo123") {
-                setError("RUT o contraseña incorrectos. Intente nuevamente.");
-            } else {
-                setView("success");
-            }
-        }, 1500);
+            login(loginId, loginPassword).then((success) => {
+                if (success) {
+                    setView("success");
+                    setIsLoading(false);
+                } else {
+                    setError("Credenciales incorrectas. Intente nuevamente.");
+                    setIsLoading(false);
+                }
+            });
+            }, 500);
     };
 
     const handleForgot = (e) => {
@@ -210,7 +213,7 @@ export function LoginModal({ isOpen, onClose }) {
                                         )}
                                     </button>
                                 </form>
-                                 
+
                                 {/*<div className="mt-6 text-center">
                                     <span className="text-gray-600 text-sm">¿Aún no tienes una cuenta? </span>
                                     <button

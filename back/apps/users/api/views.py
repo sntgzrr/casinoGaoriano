@@ -17,7 +17,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             refresh_token = tokens['refresh']
 
             res = Response()
-            res.data = {'succes': True}
+            res.data = {'success': True}
 
             res.set_cookie(
                 key='access_token',

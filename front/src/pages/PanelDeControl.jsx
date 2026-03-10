@@ -1,5 +1,6 @@
 import { Header } from "../components/Header";
 import { AdminDashboard } from "../components/AdminDashboard";
+import { Footer } from "../components/Footer";
 
 export function PanelDeControl() {
     return (
@@ -8,6 +9,7 @@ export function PanelDeControl() {
             <main>
                 <AdminDashboard />
             </main>
+            <Footer />
         </div>
     )
 }

@@ -20,7 +20,7 @@ export function PageRoutes() {
             <Route path='/casinos' element={<Casinos />} />
             <Route path='/barArpia' element={<BarArpia />} />
             <Route path='/barSkyline' element={<BarSkyline />} />
-            <Route path='/panel-de-control' element={<PanelDeControl />} />
+            <Route path='/panelDeControl' element={<PanelDeControl />} />
         </Routes>
     )
 }

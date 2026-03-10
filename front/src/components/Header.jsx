@@ -45,7 +45,7 @@ export function Header() {
     { id: "/casinos", name: "Casinos" },
     { id: "/barArpia", name: "Bar Arpía" },
     { id: "/barSkyline", name: "Bar Skyline" },
-    { id: "/panel-de-control", name: "Panel de Control" }
+    { id: "/panelDeControl", name: "Panel de Control" }
   ];
 
   return (
@@ -86,7 +86,7 @@ export function Header() {
                 Información
               </button>
               <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
-                onClick={() => navigate('/panel-de-control')}
+                onClick={() => navigate('/panelDeControl')}
               >
                 Panel de Control
               </button>

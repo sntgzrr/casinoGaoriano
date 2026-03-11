@@ -39,18 +39,13 @@ export async function isAuthenticated() {
 }
 
 export async function refreshToken() {
-    try {
-        const response = await axios.post(REFRESH_URL,{
-            withCredentials: true
-        });
-        return response.data.refreshed;
-    } catch (error) {
-        console.error('Error refreshing token:', error);
-        return false;
-    }
+    const response = await axios.post(REFRESH_URL, {}, {
+        withCredentials: true
+    });
+    return response.data.refreshed;
 }
 
-export async function callRefresh (error, func) {
+export async function callRefresh(error, func) {
     if (error.response && error.response.status == 401) {
         const tokenRefreshed = await refreshToken()
         if (tokenRefreshed) {

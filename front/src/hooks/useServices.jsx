@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getNews, getProducts } from '../utils/api/FetchingData';
+import { getNews } from '../utils/services/newsServices';
+import { getProducts } from '../utils/services/productsServices';
 
 export function useFetchingNewsData() {
     const [news, setNews] = useState([]);
@@ -12,7 +13,7 @@ export function useFetchingNewsData() {
         fetchNews();
     }, []);
 
-    return { news };
+    return { news, setNews };
 }
 
 export function useFetchingProductsData() {

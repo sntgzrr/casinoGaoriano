@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { X, Eye, EyeOff, Lock, User, AlertCircle, CheckCircle } from "lucide-react";
 import LogoGaori from "../assets/logo_gaori.png";
-import { login } from "../utils/api/Auth";
+import { login } from "../utils/services/authServices";
 
 export function LoginModal({ isOpen, onClose }) {
     const [view, setView] = useState("login");

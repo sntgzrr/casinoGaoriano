@@ -4,7 +4,7 @@ import { Services } from '../components/Services'
 import { News } from '../components/News'
 import { Footer } from '../components/Footer'
 import { ScrollToInfo } from '../utils/ScrollToInfo'
-import { useFetchingNewsData } from '../hooks/useFetchingData'
+import { useFetchingNewsData } from '../hooks/useServices'
 
 
 export function Home() {

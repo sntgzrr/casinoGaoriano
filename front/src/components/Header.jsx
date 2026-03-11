@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { LoginModal } from "./LoginModal";
 import { useAuth } from "../contexts/useAuth";
-import { logout } from "../utils/api/Auth";
+import { logout } from "../utils/services/authServices";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

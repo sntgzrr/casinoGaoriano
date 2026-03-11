@@ -93,6 +93,7 @@ export function LoginModal({ isOpen, onClose }) {
         setRegPassword("");
         setRegConfirmPassword("");
         setIsLoading(false);
+        location.reload();
         onClose();
     };
 

@@ -4,11 +4,14 @@ import LogoGaori from "../assets/logo_gaori.png";
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { LoginModal } from "./LoginModal";
+import { useAuth } from "../contexts/useAuth";
+import { logout } from "../utils/api/Auth";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const { authenticated } = useAuth();
 
   const navigate = useNavigate();
   const timeoutRef = useRef(null);
@@ -25,6 +28,14 @@ export function Header() {
       }
     }
   };
+
+  const handleLogout = async () => {
+    const logOutSuccess = await logout();
+    if (logOutSuccess) {
+      navigate('/')
+      location.reload();
+    }
+  }
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current);
@@ -45,7 +56,6 @@ export function Header() {
     { id: "/casinos", name: "Casinos" },
     { id: "/barArpia", name: "Bar Arpía" },
     { id: "/barSkyline", name: "Bar Skyline" },
-    { id: "/panelDeControl", name: "Panel de Control" }
   ];
 
   return (
@@ -85,19 +95,33 @@ export function Header() {
               >
                 Información
               </button>
-              <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
-                onClick={() => navigate('/panelDeControl')}
-              >
-                Panel de Control
-              </button>
-              <button
-                onClick={() => setIsLoginOpen(true)}
-                className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
-                style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
-              >
-                <LogIn size={15} />
-                INICIAR SESIÓN
-              </button>
+              {authenticated && (
+                <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
+                  onClick={() => navigate('/panelDeControl')}
+                >
+                  Panel de Control
+                </button>
+              )}
+              {!authenticated && (
+                <button
+                  onClick={() => setIsLoginOpen(true)}
+                  className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
+                  style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
+                >
+                  <LogIn size={15} />
+                  INICIAR SESIÓN
+                </button>
+              )}
+              {authenticated && (
+                <button
+                  onClick={() => handleLogout()}
+                  className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
+                  style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
+                >
+                  <LogIn size={15} />
+                  CERRAR SESIÓN
+                </button>
+              )}
             </nav>
 
             {/* Mobile Menu Button */}
@@ -147,17 +171,36 @@ export function Header() {
                 >
                   Información
                 </button>
+                {authenticated && (
+                  <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
+                    onClick={() => navigate('/panelDeControl')}
+                  >
+                    Panel de Control
+                  </button>
+                )}
               </div>
 
               <div className="px-4 pt-2 pb-1">
-                <button
-                  onClick={() => { setIsLoginOpen(true); setIsMenuOpen(false); }}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 text-black rounded-lg"
-                  style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
-                >
-                  <LogIn size={15} />
-                  INICIAR SESIÓN
-                </button>
+                {!authenticated && (
+                  <button
+                    onClick={() => { setIsLoginOpen(true); setIsMenuOpen(false); }}
+                    className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 text-black rounded-lg"
+                    style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
+                  >
+                    <LogIn size={15} />
+                    INICIAR SESIÓN
+                  </button>
+                )}
+                {authenticated && (
+                  <button
+                    onClick={() => handleLogout()}
+                    className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 text-black rounded-lg"
+                    style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
+                  >
+                    <LogIn size={15} />
+                    CERRAR SESIÓN
+                  </button>
+                )}
               </div>
             </nav>
           )}

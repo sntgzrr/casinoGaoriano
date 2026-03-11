@@ -18,32 +18,29 @@ export async function login(username, password) {
 
 export async function logout() {
     try {
-        const response = await axios.post(LOGOUT_URL, {
+        await axios.post(LOGOUT_URL, {}, {
             withCredentials: true
         });
-        return response.data.logged_out;
-    } catch (error) {
-        console.error('Error during logout:', error);
+        return true;
+    } catch {
         return false;
     }
 }
 
 export async function isAuthenticated() {
     try {
-        const response = await axios.get(IS_AUTHENTICATED_URL, {
+        await axios.post(IS_AUTHENTICATED_URL, {}, {
             withCredentials: true
         });
-        return response.data.is_authenticated;
-    } catch (error) {
-        console.error('Error checking authentication:', error);
+        return true;
+    } catch {
         return false;
     }
 }
 
 export async function refreshToken() {
     try {
-        const response = await axios.post(REFRESH_URL, {
-        }, {
+        const response = await axios.post(REFRESH_URL,{
             withCredentials: true
         });
         return response.data.refreshed;

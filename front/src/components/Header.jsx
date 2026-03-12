@@ -1,4 +1,4 @@
-import { Menu, X, ChevronDown, LogIn } from "lucide-react";
+import { Menu, X, ChevronDown, LogIn, Loader } from "lucide-react";
 import { useState } from "react";
 import LogoGaori from "../assets/logo_gaori.png";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const { authenticated } = useAuth();
+  const { authenticated, loading } = useAuth();
 
   const navigate = useNavigate();
   const timeoutRef = useRef(null);
@@ -95,14 +95,27 @@ export function Header() {
               >
                 Información
               </button>
-              {authenticated && (
-                <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
-                  onClick={() => navigate('/panelDeControl')}
-                >
-                  Panel de Control
-                </button>
-              )}
-              {!authenticated && (
+              {loading ? (
+                <div className="flex items-center gap-2 px-5 py-2 bg-gray-600 text-white rounded-lg cursor-not-allowed">
+                  <Loader size={15} className="animate-spin" />
+                </div>
+              ) : authenticated ? (
+                <>
+                  <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
+                    onClick={() => navigate('/panelDeControl')}
+                  >
+                    Panel de Control
+                  </button>
+                  <button
+                    onClick={() => handleLogout()}
+                    className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
+                    style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
+                  >
+                    <LogIn size={15} />
+                    CERRAR SESIÓN
+                  </button>
+                </>
+              ) : (
                 <button
                   onClick={() => setIsLoginOpen(true)}
                   className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
@@ -110,16 +123,6 @@ export function Header() {
                 >
                   <LogIn size={15} />
                   INICIAR SESIÓN
-                </button>
-              )}
-              {authenticated && (
-                <button
-                  onClick={() => handleLogout()}
-                  className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
-                  style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
-                >
-                  <LogIn size={15} />
-                  CERRAR SESIÓN
                 </button>
               )}
             </nav>

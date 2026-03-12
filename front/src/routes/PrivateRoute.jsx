@@ -6,12 +6,13 @@ function PrivateRoute({ children }) {
     const navigate = useNavigate();
 
     if (loading) {
-        return false;
+        return null;
     }
     if (authenticated) {
         return children;
     } else {
         navigate("/");
+        return null;
     }
 }
 

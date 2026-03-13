@@ -1,19 +1,19 @@
-import GaoriAniversario from "../assets/gaori_aniversario.jpg";
 import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
+import { useRef } from "react";
+import useTypewriterEffect from "../hooks/useTypewriterEffect";
 
 export function Hero() {
   const container = useSplitTextAnimation();
-  return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden" ref={container}>
-      <div className="absolute inset-0">
-        <img src={GaoriAniversario} alt="Gaori Aniversario" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
-      </div>
+  const textRef = useRef();
+  const cursorRef = useRef();
+  useTypewriterEffect(textRef, cursorRef, ["Gaoriano"]);
 
+  return (
+    <section className="py-20 px-4 bg-gray-900 h-screen flex items-center justify-center overflow-hidden" ref={container}>
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <h2 className="split-text-chars text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent">
+        <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent">
           Bienvenid@<br />
-          Gaoriano
+          <span ref={textRef}></span><span ref={cursorRef} className="ml-1 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent">|</span>
         </h2>
         <button
           onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}

@@ -7,6 +7,7 @@ import { NewsSection } from '../components/NewsSection';
 import productsData from '../mocks/productsData.json'
 import barTomo2 from "../assets/barTomoImages/barTomo2.png";
 import barTomo3 from "../assets/barTomoImages/barTomo3.png";
+import barTomo4 from "../assets/barTomoImages/barTomo4.png";
 
 export function BarTomo() {
     return (
@@ -16,7 +17,7 @@ export function BarTomo() {
                 <General 
                     title="Bar Tomo" 
                     description="Bar Tomo es el lugar perfecto para disfrutar de una experiencia única en el Casino Gaoriano. Disfruta de una amplia selección de productos."
-                    images={[barTomo2, barTomo3]}
+                    images={[barTomo2, barTomo3, barTomo4]}
                 />
                 <Products title="Productos" description="Descubre nuestra selección exclusiva de productos y bebidas." 
                     products={productsData.filter(item => item.category === "BarTomo")} 

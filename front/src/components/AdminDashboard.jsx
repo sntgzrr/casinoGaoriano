@@ -17,7 +17,7 @@ export function AdminDashboard() {
                             </div>
                             <div>
                                 <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-                                    Panel de Administración
+                                    Panel de Control
                                 </h1>
                                 <p className="text-gray-400 text-sm">Casino Gaoriano</p>
                             </div>

@@ -259,7 +259,7 @@ export function AdminNewsManager() {
                                     </label>
                                     <input
                                         id="date"
-                                        type="text"
+                                        type="date"
                                         value={formData.date}
                                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                                         className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"

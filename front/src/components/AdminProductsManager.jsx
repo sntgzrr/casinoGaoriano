@@ -13,6 +13,7 @@ export function AdminProductsManager() {
             imageUrl: "https://images.unsplash.com/photo-1605089315581-54b30a285ac9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBiZWFucyUyMHByb2R1Y3R8ZW58MXx8fHwxNzcyMzc5NjI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
             imageAlt: "Café Premium",
             badge: "Popular",
+            category: "Bar Tomo"
         },
         {
             id: "2",
@@ -21,6 +22,7 @@ export function AdminProductsManager() {
             price: "$45.00",
             imageUrl: "https://images.unsplash.com/photo-1733248113910-400496b9a544?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aW5lJTIwYm90dGxlcyUyMGVsZWdhbnR8ZW58MXx8fHwxNzcyMjc0NzkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
             imageAlt: "Vinos Selectos",
+            category: "Bar Tomo"
         },
         {
             id: "3",
@@ -30,6 +32,7 @@ export function AdminProductsManager() {
             imageUrl: "https://images.unsplash.com/photo-1649779117064-107e63b88758?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaWdhcnMlMjBsdXh1cnklMjBwcm9kdWN0fGVufDF8fHx8MTc3MjM3OTYyOHww&ixlib=rb-4.1.0&q=80&w=1080",
             imageAlt: "Puros Premium",
             badge: "Exclusivo",
+            category: "Bar Tomo"
         },
         {
             id: "4",
@@ -38,6 +41,7 @@ export function AdminProductsManager() {
             price: "$22.00",
             imageUrl: "https://images.unsplash.com/photo-1767510533183-425731f088a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaG9jb2xhdGUlMjBnb3VybWV0JTIwbHV4dXJ5fGVufDF8fHx8MTc3MjM3OTYzMHww&ixlib=rb-4.1.0&q=80&w=1080",
             imageAlt: "Chocolate Gourmet",
+            category: "Bar Tomo"
         },
         {
             id: "5",
@@ -46,6 +50,7 @@ export function AdminProductsManager() {
             price: "$35.00",
             imageUrl: "https://images.unsplash.com/photo-1768751947135-a841b07a820f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnb3VybWV0JTIwZm9vZCUyMHByb2R1Y3RzfGVufDF8fHx8MTc3MjM3OTYyOXww&ixlib=rb-4.1.0&q=80&w=1080",
             imageAlt: "Delicatessen",
+            category: "Bar Tomo"
         },
         {
             id: "6",
@@ -55,6 +60,7 @@ export function AdminProductsManager() {
             imageUrl: "https://images.unsplash.com/photo-1628136473110-6e95a86f4b81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWxpdGFyeSUyMG1lcmNoYW5kaXNlJTIwcHJvZHVjdHN8ZW58MXx8fHwxNzcyMzc5NjMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
             imageAlt: "Merchandising",
             badge: "Nuevo",
+            category: "Bar Tomo"
         },
     ];
     const [products, setProducts] = useState(defaultProducts);
@@ -68,6 +74,7 @@ export function AdminProductsManager() {
         imageUrl: "",
         imageAlt: "",
         badge: "",
+        category: "",
     });
 
     const saveProducts = (updatedProducts) => {
@@ -78,6 +85,12 @@ export function AdminProductsManager() {
     const handleOpenDialog = (product) => {
         if (product) {
             setEditingProduct(product);
+            const categoryMap = {
+                "Bar Tomo": "bar-tomo",
+                "Bar Arpía": "bar-arpia",
+                "Cara Cara": "cara-cara"
+            };
+            const categoryValue = categoryMap[product.category] || product.category;
             setFormData({
                 name: product.name,
                 description: product.description,
@@ -85,6 +98,7 @@ export function AdminProductsManager() {
                 imageUrl: product.imageUrl,
                 imageAlt: product.imageAlt,
                 badge: product.badge || "",
+                category: categoryValue,
             });
         } else {
             setEditingProduct(null);
@@ -95,6 +109,7 @@ export function AdminProductsManager() {
                 imageUrl: "",
                 imageAlt: "",
                 badge: "",
+                category: "",
             });
         }
         setIsDialogOpen(true);
@@ -106,11 +121,19 @@ export function AdminProductsManager() {
             return;
         }
 
+        // Map select value back to display category
+        const displayMap = {
+            "bar-tomo": "Bar Tomo",
+            "bar-arpia": "Bar Arpía",
+            "cara-cara": "Cara Cara"
+        };
+        const categoryDisplay = displayMap[formData.category] || formData.category;
+
         if (editingProduct) {
             // Update existing product
             const updatedProducts = products.map((p) =>
                 p.id === editingProduct.id
-                    ? { ...editingProduct, ...formData, badge: formData.badge || undefined }
+                    ? { ...editingProduct, ...formData, category: categoryDisplay, badge: formData.badge || undefined }
                     : p
             );
             saveProducts(updatedProducts);
@@ -120,6 +143,7 @@ export function AdminProductsManager() {
             const newProduct = {
                 id: Date.now().toString(),
                 ...formData,
+                category: categoryDisplay,
                 badge: formData.badge || undefined,
             };
             saveProducts([...products, newProduct]);
@@ -163,6 +187,7 @@ export function AdminProductsManager() {
                                 <th className="text-left px-6 py-4 text-amber-400 font-semibold">Producto</th>
                                 <th className="text-left px-6 py-4 text-amber-400 font-semibold">Descripción</th>
                                 <th className="text-left px-6 py-4 text-amber-400 font-semibold">Precio</th>
+                                <th className="text-left px-6 py-4 text-amber-400 font-semibold">Categoría</th>
                                 <th className="text-left px-6 py-4 text-amber-400 font-semibold">Badge</th>
                                 <th className="text-right px-6 py-4 text-amber-400 font-semibold">Acciones</th>
                             </tr>
@@ -189,6 +214,7 @@ export function AdminProductsManager() {
                                         </td>
                                         <td className="px-6 py-4 text-gray-300 max-w-md truncate">{product.description}</td>
                                         <td className="px-6 py-4 text-amber-400 font-semibold">{product.price}</td>
+                                        <td className="px-6 py-4"><span className="bg-blue-500/20 text-amber-400 px-3 py-1 rounded-full text-sm">{product.category}</span></td>
                                         <td className="px-6 py-4">
                                             {product.badge ? (
                                                 <span className="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-sm">
@@ -291,18 +317,34 @@ export function AdminProductsManager() {
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="badge" className="block text-gray-300 mb-1 font-medium">
-                                        Badge (Opcional)
+                                    <label htmlFor="category" className="block text-gray-300 mb-1 font-medium">
+                                        Categoría *
                                     </label>
-                                    <input
-                                        id="badge"
-                                        type="text"
-                                        value={formData.badge}
-                                        onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
+                                    <select
+                                        id="category"
+                                        value={formData.category}
+                                        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                                         className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                                        placeholder="Popular, Nuevo, etc."
-                                    />
+                                    >
+                                        <option value="cara-cara">Cara Cara</option>
+                                        <option value="bar-arpia">Bar Arpía</option>
+                                        <option value="bar-tomo">Bar Tomo</option>
+                                    </select>
                                 </div>
+                            </div>
+
+                            <div>
+                                <label htmlFor="badge" className="block text-gray-300 mb-1 font-medium">
+                                    Badge (Opcional)
+                                </label>
+                                <input
+                                    id="badge"
+                                    type="text"
+                                    value={formData.badge}
+                                    onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
+                                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                                    placeholder="Popular, Nuevo, etc."
+                                />
                             </div>
 
                             <div>

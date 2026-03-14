@@ -1,69 +1,11 @@
 import { useState } from "react";
 import { Plus, Edit, Trash2, Package, X } from "lucide-react";
+import { useFetchingProductsData } from "../hooks/useServices";
+import { postProduct, putProduct, deleteProduct } from "../utils/services/productsServices";
 // import { toast } from "sonner";
 
 export function AdminProductsManager() {
-
-    const defaultProducts = [
-        {
-            id: "1",
-            name: "Café Premium",
-            description: "Granos de café seleccionados de origen, tostado especial. Disponible en presentaciones de 250g y 500g.",
-            price: "$15.99",
-            imageUrl: "https://images.unsplash.com/photo-1605089315581-54b30a285ac9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBiZWFucyUyMHByb2R1Y3R8ZW58MXx8fHwxNzcyMzc5NjI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
-            imageAlt: "Café Premium",
-            badge: "Popular",
-            category: "Bar Tomo"
-        },
-        {
-            id: "2",
-            name: "Vinos Selectos",
-            description: "Colección exclusiva de vinos nacionales e internacionales. Ediciones limitadas y reservas especiales.",
-            price: "$45.00",
-            imageUrl: "https://images.unsplash.com/photo-1733248113910-400496b9a544?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aW5lJTIwYm90dGxlcyUyMGVsZWdhbnR8ZW58MXx8fHwxNzcyMjc0NzkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-            imageAlt: "Vinos Selectos",
-            category: "Bar Tomo"
-        },
-        {
-            id: "3",
-            name: "Puros Premium",
-            description: "Puros artesanales de las mejores cosechas. Importados y nacionales, con certificado de autenticidad.",
-            price: "$28.50",
-            imageUrl: "https://images.unsplash.com/photo-1649779117064-107e63b88758?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaWdhcnMlMjBsdXh1cnklMjBwcm9kdWN0fGVufDF8fHx8MTc3MjM3OTYyOHww&ixlib=rb-4.1.0&q=80&w=1080",
-            imageAlt: "Puros Premium",
-            badge: "Exclusivo",
-            category: "Bar Tomo"
-        },
-        {
-            id: "4",
-            name: "Chocolate Gourmet",
-            description: "Chocolates artesanales de alta calidad. Presentaciones especiales para regalo y consumo personal.",
-            price: "$22.00",
-            imageUrl: "https://images.unsplash.com/photo-1767510533183-425731f088a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaG9jb2xhdGUlMjBnb3VybWV0JTIwbHV4dXJ5fGVufDF8fHx8MTc3MjM3OTYzMHww&ixlib=rb-4.1.0&q=80&w=1080",
-            imageAlt: "Chocolate Gourmet",
-            category: "Bar Tomo"
-        },
-        {
-            id: "5",
-            name: "Delicatessen",
-            description: "Productos gourmet importados: quesos finos, embutidos premium, aceites de oliva y conservas selectas.",
-            price: "$35.00",
-            imageUrl: "https://images.unsplash.com/photo-1768751947135-a841b07a820f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnb3VybWV0JTIwZm9vZCUyMHByb2R1Y3RzfGVufDF8fHx8MTc3MjM3OTYyOXww&ixlib=rb-4.1.0&q=80&w=1080",
-            imageAlt: "Delicatessen",
-            category: "Bar Tomo"
-        },
-        {
-            id: "6",
-            name: "Merchandising",
-            description: "Artículos oficiales del Casino: camisetas, gorras, tazas y otros productos con el emblema institucional.",
-            price: "$18.00",
-            imageUrl: "https://images.unsplash.com/photo-1628136473110-6e95a86f4b81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaWxpdGFyeSUyMG1lcmNoYW5kaXNlJTIwcHJvZHVjdHN8ZW58MXx8fHwxNzcyMzc5NjMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
-            imageAlt: "Merchandising",
-            badge: "Nuevo",
-            category: "Bar Tomo"
-        },
-    ];
-    const [products, setProducts] = useState(defaultProducts);
+    const { products, setProducts } = useFetchingProductsData();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [editingProduct, setEditingProduct] = useState(null);
     const [deleteProductId, setDeleteProductId] = useState(null);
@@ -77,18 +19,51 @@ export function AdminProductsManager() {
         category: "",
     });
 
-    const saveProducts = (updatedProducts) => {
-        setProducts(updatedProducts);
-        localStorage.setItem("products", JSON.stringify(updatedProducts));
+    const updateProduct = async (newId, newData) => {
+        try {
+            await putProduct(newId, newData).then((updatedNew) => {
+                if (newId) {
+                    setProducts((prevProducts) => prevProducts.map((p) => (p.id === newId ? updatedNew : p)));
+                } else {
+                    setProducts((prevProducts) => [...prevProducts, updatedNew]);
+                }
+            });
+        } catch (error) {
+            console.error("Error saving product:", error);
+            // toast.error("Error al guardar el producto. Por favor, intenta nuevamente.");
+        }
+    };
+
+    const createProduct = async (productData) => {
+        try {
+            await postProduct(productData).then((createdProduct) => {
+                setProducts((prevProducts) => [...prevProducts, createdProduct]);
+            });
+        } catch (error) {
+            console.error("Error creating product:", error);
+            // toast.error("Error al crear el producto. Por favor, intenta nuevamente.");
+        }
+    }
+
+    const destroyProduct = async (newId) => {
+        try {
+            await deleteProduct(newId).then(() => {
+                setProducts((prevProducts) => prevProducts.filter((p) => p.id !== newId));
+                setDeleteProductId(null);
+            });
+        } catch (error) {
+            console.error("Error deleting news:", error);
+            // toast.error("Error al eliminar la noticia. Por favor, intenta nuevamente.");
+        }
     };
 
     const handleOpenDialog = (product) => {
         if (product) {
             setEditingProduct(product);
             const categoryMap = {
-                "Bar Tomo": "bar-tomo",
-                "Bar Arpía": "bar-arpia",
-                "Cara Cara": "cara-cara"
+                "Bar Tomo": "Bar Tomo",
+                "Bar Arpía": "Bar Arpía",
+                "Cara Cara": "Cara Cara"
             };
             const categoryValue = categoryMap[product.category] || product.category;
             setFormData({
@@ -115,50 +90,28 @@ export function AdminProductsManager() {
         setIsDialogOpen(true);
     };
 
-    const handleSaveProduct = () => {
+    const handleSaveProduct = async () => {
         if (!formData.name || !formData.description || !formData.price) {
             // toast.error("Por favor completa todos los campos obligatorios");
             return;
         }
 
-        // Map select value back to display category
-        const displayMap = {
-            "bar-tomo": "Bar Tomo",
-            "bar-arpia": "Bar Arpía",
-            "cara-cara": "Cara Cara"
-        };
-        const categoryDisplay = displayMap[formData.category] || formData.category;
-
         if (editingProduct) {
-            // Update existing product
-            const updatedProducts = products.map((p) =>
-                p.id === editingProduct.id
-                    ? { ...editingProduct, ...formData, category: categoryDisplay, badge: formData.badge || undefined }
-                    : p
-            );
-            saveProducts(updatedProducts);
+            await updateProduct(editingProduct.id, formData);
             // toast.success("Producto actualizado exitosamente");
         } else {
-            // Create new product
-            const newProduct = {
-                id: Date.now().toString(),
-                ...formData,
-                category: categoryDisplay,
-                badge: formData.badge || undefined,
-            };
-            saveProducts([...products, newProduct]);
+            await createProduct(formData);
             // toast.success("Producto creado exitosamente");
         }
-
         setIsDialogOpen(false);
     };
 
-    const handleDeleteProduct = () => {
-        if (deleteProductId) {
-            const updatedProducts = products.filter((p) => p.id !== deleteProductId);
-            saveProducts(updatedProducts);
-            // toast.success("Producto eliminado exitosamente");
-            setDeleteProductId(null);
+    const handleDeleteProduct = async () => {
+        try {
+            await destroyProduct(deleteProductId);
+        } catch (error) {
+            console.error("Error deleting product:", error);
+            // toast.error("Error al eliminar el producto. Por favor, intenta nuevamente.");
         }
     };
 
@@ -326,9 +279,9 @@ export function AdminProductsManager() {
                                         onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                                         className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                                     >
-                                        <option value="cara-cara">Cara Cara</option>
-                                        <option value="bar-arpia">Bar Arpía</option>
-                                        <option value="bar-tomo">Bar Tomo</option>
+                                        <option value="Cara Cara">Cara Cara</option>
+                                        <option value="Bar Arpía">Bar Arpía</option>
+                                        <option value="Bar Tomo">Bar Tomo</option>
                                     </select>
                                 </div>
                             </div>

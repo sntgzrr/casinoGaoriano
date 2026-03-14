@@ -26,5 +26,5 @@ export function useFetchingProductsData() {
         };
         fetchProducts();
     }, []);
-    return { products };
+    return { products, setProducts };
 }

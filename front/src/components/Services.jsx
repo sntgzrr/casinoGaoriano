@@ -17,14 +17,14 @@ export function Services() {
                     </p>
                 </div>
                 <div>
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3 h-200">
-                        <div onClick={() => navigate('/barTomo')} className="bg-blue-500 md:row-span-4 rounded-lg cursor-pointer hover:bg-blue-600 transition-colors">Bar Tomo</div>
-                        <div onClick={() => navigate('/piscina')} className="bg-green-500 md:col-span-1 md:row-span-2 rounded-lg cursor-pointer hover:bg-green-600 transition-colors">Piscina</div>
-                        <div onClick={() => navigate('/caraCara')} className="bg-yellow-500 md:col-span-1 md:row-span-2 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Cara Cara</div>
-                        <div onClick={() => navigate('/casinos')} className="bg-yellow-500 md:col-span-2 md:row-span-7 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Comedor Oficiales/Suboficiales</div>
-                        <div onClick={() => navigate('/mall')} className="bg-yellow-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Mall</div>
-                        <div onClick={() => navigate('/barArpia')} className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Arpía</div>
-                        <div onClick={() => navigate('/barSkyline')} className="bg-yellow-500 md:col-span-1 md:row-span-20 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Skyline</div>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3 auto-rows-[20rem] md:auto-rows-auto">
+                        <div onClick={() => navigate('/barTomo')} className="bg-blue-500 md:row-span-4 md:row-span-27 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/barTomoImages/barTomo1.png')] bg-cover bg-contain bg-no-repeat"></div>
+                        <div onClick={() => navigate('/piscina')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer hover:bg-green-600 transition-colors">Piscina</div>
+                        <div onClick={() => navigate('/caraCara')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Cara Cara</div>
+                        <div onClick={() => navigate('/casinos')} className="bg-blue-500 md:col-span-2 md:row-span-15 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Comedor Oficiales/Suboficiales</div>
+                        <div onClick={() => navigate('/mall')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Mall</div>
+                        <div onClick={() => navigate('/barArpia')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Arpía</div>
+                        <div onClick={() => navigate('/barSkyline')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Skyline</div>
                     </div>
                 </div>
                 <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">

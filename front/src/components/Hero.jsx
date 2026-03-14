@@ -12,7 +12,7 @@ export function Hero() {
     <section className="py-20 px-4 bg-gray-900 h-screen flex items-center justify-center overflow-hidden" ref={container}>
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent">
-          Bienvenid@<br />
+          Bienvenido<br />
           <span ref={textRef}></span><span ref={cursorRef} className="ml-1 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 bg-clip-text text-transparent">|</span>
         </h2>
         <button

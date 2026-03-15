@@ -3,7 +3,9 @@ import { General } from '../components/General'
 import { Contact } from '../components/Contact'
 import { NewsSection } from '../components/NewsSection'
 import { Footer } from '../components/Footer'
-import Gaori from "../assets/gaori_aniversario.jpg";
+import piscina1 from "../assets/piscina/piscina1.png";
+import piscina2 from "../assets/piscina/piscina2.png";
+import piscina3 from "../assets/piscina/piscina3.png";
 
 export function Piscina() {
     return (
@@ -13,7 +15,7 @@ export function Piscina() {
                 <General 
                     title="Piscina" 
                     description="Disfruta de nuestra piscina para relajarte y divertirte con amigos." 
-                    images={[Gaori, Gaori]}
+                    images={[piscina1, piscina2, piscina3]}
                 />
                 <NewsSection section="Piscina" />
                 <Contact 

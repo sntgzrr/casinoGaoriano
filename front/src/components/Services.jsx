@@ -18,13 +18,27 @@ export function Services() {
                 </div>
                 <div>
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:grid-rows-3 auto-rows-[20rem] md:auto-rows-auto">
-                        <div onClick={() => navigate('/barTomo')} className="bg-blue-500 md:row-span-4 md:row-span-27 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/barTomoImages/barTomo1.png')] bg-cover bg-contain bg-no-repeat"></div>
-                        <div onClick={() => navigate('/piscina')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer hover:bg-green-600 transition-colors">Piscina</div>
-                        <div onClick={() => navigate('/caraCara')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Cara Cara</div>
-                        <div onClick={() => navigate('/casinos')} className="bg-blue-500 md:col-span-2 md:row-span-15 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Comedor Oficiales/Suboficiales</div>
-                        <div onClick={() => navigate('/mall')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Mall</div>
-                        <div onClick={() => navigate('/barArpia')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Arpía</div>
-                        <div onClick={() => navigate('/barSkyline')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer hover:bg-yellow-600 transition-colors">Bar Skyline</div>
+                        <div onClick={() => navigate('/barTomo')} className="bg-blue-500 md:row-span-4 md:row-span-27 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/barTomoImages/barTomo1.png')] bg-cover bg-contain bg-no-repeat">
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Bar Tomo</span>
+                        </div>
+                        <div onClick={() => navigate('/piscina')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Piscina</span>
+                        </div>
+                        <div onClick={() => navigate('/caraCara')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Cara Cara</span>
+                        </div>
+                        <div onClick={() => navigate('/casinos')} className="bg-blue-500 md:col-span-2 md:row-span-15 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Casinos</span>
+                        </div>
+                        <div onClick={() => navigate('/mall')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Mall</span>
+                        </div>
+                        <div onClick={() => navigate('/barArpia')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Bar Arpía</span>
+                        </div>
+                        <div onClick={() => navigate('/barSkyline')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Bar Skyline</span>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">

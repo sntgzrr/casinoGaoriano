@@ -84,7 +84,7 @@ export function AdminProductsManager() {
                 imageUrl: "",
                 imageAlt: "",
                 badge: "",
-                category: "",
+                category: "Cara Cara",
             });
         }
         setIsDialogOpen(true);
@@ -153,8 +153,8 @@ export function AdminProductsManager() {
                                     </td>
                                 </tr>
                             ) : (
-                                products.map((product) => (
-                                    <tr key={product.id} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                                products.map((product, index) => (
+                                    <tr key={product.id || `product-${index}`} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center space-x-3">
                                                 <img

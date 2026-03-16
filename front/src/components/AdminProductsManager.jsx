@@ -153,7 +153,7 @@ export function AdminProductsManager() {
                                     </td>
                                 </tr>
                             ) : (
-                                products.map((product, index) => (
+                                products.sort((a, b) => a.category.localeCompare(b.category)).map((product, index) => (
                                     <tr key={product.id || `product-${index}`} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center space-x-3">

@@ -148,7 +148,7 @@ export function AdminNewsManager() {
                                     </td>
                                 </tr>
                             ) : (
-                                news.map((newsItem, index) => (
+                                news.sort((a, b) => a.category.localeCompare(b.category)).map((newsItem, index) => (
                                     <tr key={newsItem.id || `news-${index}`} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center space-x-3">

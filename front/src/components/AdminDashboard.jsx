@@ -7,25 +7,6 @@ export function AdminDashboard() {
       const [activeTab, setActiveTab] = useState("products");
     return (
         <section className="py-20 px-4 bg-gray-900">
-            {/* Header */}
-            <div className="bg-gradient-to-r from-gray-900 to-black border-b border-amber-900/30">
-                <div className="container mx-auto max-w-7xl px-4 py-6">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                            <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center">
-                                <Shield className="text-white" size={24} />
-                            </div>
-                            <div>
-                                <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-                                    Panel de Control
-                                </h1>
-                                <p className="text-gray-400 text-sm">Casino Gaoriano</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {/* Main Content */}
             <div className="container mx-auto max-w-7xl px-4 py-10">
                 {/* Custom Tabs */}

@@ -21,10 +21,10 @@ export function Services() {
                         <div onClick={() => navigate('/barTomo')} className="bg-blue-500 md:row-span-4 md:row-span-27 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/barTomoImages/barTomo1.png')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Bar Tomo</span>
                         </div>
-                        <div onClick={() => navigate('/piscina')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                        <div onClick={() => navigate('/piscina')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscinaImages/piscina1.png')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Piscina</span>
                         </div>
-                        <div onClick={() => navigate('/caraCara')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                        <div onClick={() => navigate('/caraCara')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/caraCaraImages/caraCara1.png')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Cara Cara</span>
                         </div>
                         <div onClick={() => navigate('/casinos')} className="bg-blue-500 md:col-span-2 md:row-span-15 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">

@@ -2,13 +2,25 @@ import { useState } from "react";
 import { Plus, Edit, Trash2, Package, X } from "lucide-react";
 import { useFetchingProductsData } from "../hooks/useServices";
 import { postProduct, putProduct, deleteProduct } from "../utils/services/productsServices";
+import { MultipleOptionFilter } from "./MultipleOptionFilter";
 // import { toast } from "sonner";
 
 export function AdminProductsManager() {
     const { products, setProducts } = useFetchingProductsData();
+    const [displayedProducts, setDisplayedProducts] = useState([]);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [editingProduct, setEditingProduct] = useState(null);
     const [deleteProductId, setDeleteProductId] = useState(null);
+
+    const categories = [
+        { id: "0", name: "Todos" },
+        { id: "1", name: "Bar Tomo" },
+        { id: "3", name: "Cara Cara" },
+        { id: "4", name: "Mall" },
+        { id: "5", name: "Casinos" },
+        { id: "6", name: "Bar Arpía" },
+    ];
+
     const [formData, setFormData] = useState({
         name: "",
         description: "",
@@ -131,6 +143,9 @@ export function AdminProductsManager() {
                 </button>
             </div>
 
+            {/* Filters */}
+            <MultipleOptionFilter name={"Filtrar por Categoría"} options={categories} products={products} onFilteredProductsChange={setDisplayedProducts} />
+
             {/* Products Table */}
             <div className="bg-gray-900 rounded-xl border border-amber-900/30 overflow-hidden">
                 <div className="overflow-x-auto">
@@ -146,14 +161,14 @@ export function AdminProductsManager() {
                             </tr>
                         </thead>
                         <tbody>
-                            {products.length === 0 ? (
+                            {displayedProducts.length === 0 ? (
                                 <tr>
                                     <td colSpan={5} className="text-center px-6 py-12 text-gray-400">
                                         No hay productos. Crea uno nuevo para comenzar.
                                     </td>
                                 </tr>
                             ) : (
-                                products.sort((a, b) => a.category.localeCompare(b.category)).map((product, index) => (
+                                displayedProducts.sort((a, b) => a.category.localeCompare(b.category)).map((product, index) => (
                                     <tr key={product.id || `product-${index}`} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
                                         <td className="px-6 py-4">
                                             <div className="flex items-center space-x-3">
@@ -282,6 +297,8 @@ export function AdminProductsManager() {
                                         <option value="Cara Cara">Cara Cara</option>
                                         <option value="Bar Arpía">Bar Arpía</option>
                                         <option value="Bar Tomo">Bar Tomo</option>
+                                        <option value="Casinos">Casinos</option>
+                                        <option value="Mall">Mall</option>
                                     </select>
                                 </div>
                             </div>

@@ -4,10 +4,11 @@ import { Contact } from '../components/Contact'
 import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
-import productsData from '../mocks/productsData.json'
+import { useFetchingProductsData } from '../hooks/useServices'
 import Gaori from "../assets/gaori_aniversario.jpg";
 
 export function Mall () {
+    const { products } = useFetchingProductsData();
     return (
         <div className='min-h-screen bg-black text-white'>
             <Header />
@@ -18,7 +19,7 @@ export function Mall () {
                     images={[Gaori, Gaori]}
                 />
                 <Products title="Menú" description="Descubre nuestra selección de platos exquisitos."
-                    products={productsData.filter(item => item.category === "Mall")} 
+                    products={products.filter(item => item.category === "Mall")} 
                     infoBanner={true} 
                     infoBannerTitle="Compra" 
                     infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjetas débito." />

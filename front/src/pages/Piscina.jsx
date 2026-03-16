@@ -3,9 +3,9 @@ import { General } from '../components/General'
 import { Contact } from '../components/Contact'
 import { NewsSection } from '../components/NewsSection'
 import { Footer } from '../components/Footer'
-import piscina1 from "../assets/piscina/piscina1.png";
-import piscina2 from "../assets/piscina/piscina2.png";
-import piscina3 from "../assets/piscina/piscina3.png";
+import piscina1 from "../assets/piscinaImages/piscina1.png";
+import piscina2 from "../assets/piscinaImages/piscina2.png";
+import piscina3 from "../assets/piscinaImages/piscina3.png";
 
 export function Piscina() {
     return (

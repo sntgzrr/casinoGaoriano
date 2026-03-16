@@ -5,7 +5,9 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import { useFetchingProductsData } from '../hooks/useServices'
-import Gaori from "../assets/gaori_aniversario.jpg";
+import caraCara1 from '../assets/caraCaraImages/caraCara1.png'
+import caraCara2 from '../assets/caraCaraImages/caraCara2.png'
+import caraCara3 from '../assets/caraCaraImages/caraCara3.png'
 
 export function CaraCara() {
     const { products } = useFetchingProductsData();
@@ -16,9 +18,9 @@ export function CaraCara() {
                 <General 
                     title="Cara Cara" 
                     description="Disfruta de nuestra zona de comidas Cara Cara para comer deliciosos platos a la carta."
-                    images={[Gaori, Gaori]}
+                    images={[caraCara1, caraCara2, caraCara3]}
                 />
-                <Products title="Cara Cara" description="Descubre nuestra selección de platos exquisitos y bebidas refrescantes."
+                <Products title="Productos" description="Descubre nuestra selección de platos exquisitos y bebidas refrescantes."
                     products={products.filter(item => item.category === "Cara Cara")} 
                     infoBanner={true} 
                     infoBannerTitle="Compra" 

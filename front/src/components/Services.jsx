@@ -27,16 +27,16 @@ export function Services() {
                         <div onClick={() => navigate('/caraCara')} className="bg-blue-500 md:col-span-1 md:row-span-12 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/caraCaraImages/caraCara1.png')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Cara Cara</span>
                         </div>
-                        <div onClick={() => navigate('/casinos')} className="bg-blue-500 md:col-span-2 md:row-span-15 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                        <div onClick={() => navigate('/casinos')} className="bg-blue-500 md:col-span-2 md:row-span-15 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/casinoImages/casino1.png')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Casinos</span>
                         </div>
                         <div onClick={() => navigate('/mall')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Mall</span>
                         </div>
-                        <div onClick={() => navigate('/barArpia')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                        <div onClick={() => navigate('/barArpia')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/barArpiaImages/barArpia1.png')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Bar Arpía</span>
                         </div>
-                        <div onClick={() => navigate('/barSkyline')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/piscina/piscina1.png')] bg-cover bg-contain bg-no-repeat">
+                        <div onClick={() => navigate('/barSkyline')} className="bg-blue-500 md:col-span-1 md:row-span-25 rounded-lg cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden bg-[url('../assets/barSkylineImages/barSkyline1.jpg')] bg-cover bg-contain bg-no-repeat">
                             <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white text-lg font-semibold">Bar Skyline</span>
                         </div>
                     </div>

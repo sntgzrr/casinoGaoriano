@@ -3,7 +3,7 @@ import { Footer } from '../components/Footer'
 import { Contact } from '../components/Contact';
 import { General } from '../components/General';
 import { NewsSection } from '../components/NewsSection';
-import Gaori from "../assets/gaori_aniversario.jpg";
+import barSkyline1 from "../assets/barSkylineImages/barSkyline1.jpg";
 
 export function BarSkyline() {
     return (
@@ -13,13 +13,13 @@ export function BarSkyline() {
                 <General
                     title="Bar Skyline"
                     description="Bar Skyline es el lugar perfecto para disfrutar de una lista de actividades de ocio únicas para los Gaorianos."
-                    images={[Gaori, Gaori]}
+                    images={[barSkyline1]}
                 />
                 <NewsSection section="Bar Skyline" />
                 <Contact
                     direction="Segundo Piso Casino"
                     phone="+1 (555) 123-4567"
-                    contact="ESALO"
+                    contact="ECEA"
                     schedule="J-D: 18:00 - 21:00"
                     showPhone={false}
                 />

@@ -5,7 +5,9 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import { useFetchingProductsData } from '../hooks/useServices'
-import Gaori from "../assets/gaori_aniversario.jpg";
+import casino1 from '../assets/casinoImages/casino1.png'
+import casino2 from '../assets/casinoImages/casino2.png'
+import casino3 from '../assets/casinoImages/casino3.png'
 
 export function Casinos() {
     const { products } = useFetchingProductsData();
@@ -16,7 +18,7 @@ export function Casinos() {
                 <General
                     title="Casinos"
                     description="Disfruta de las comidas gaorianas en nuestros Casinos."
-                    images={[Gaori, Gaori]}
+                    images={[casino1, casino2, casino3]}
                 />
                 <Products title="Menú" description="Descubre nuestra selección de platos exquisitos."
                     products={products.filter(item => item.category === "Casinos")}

@@ -5,7 +5,8 @@ import { General } from '../components/General';
 import { Products } from '../components/Products';
 import { NewsSection } from '../components/NewsSection';
 import { useFetchingProductsData } from '../hooks/useServices'
-import Gaori from "../assets/gaori_aniversario.jpg";
+import barApia1 from "../assets/barArpiaImages/barArpia1.png";
+import barApia2 from "../assets/barArpiaImages/barArpia2.png";
 
 export function BarArpia() {
     const { products } = useFetchingProductsData();
@@ -16,7 +17,7 @@ export function BarArpia() {
                 <General
                     title="Bar Arpía"
                     description="Bar Arpía es el lugar perfecto para disfrutar de una experiencia única para el Gaoriano. Disfruta de una amplia selección de productos."
-                    images={[Gaori, Gaori]}
+                    images={[barApia1, barApia2]}
                 />
                 <Products title="Productos" description="Descubre nuestra selección exclusiva de productos y bebidas."
                     products={products.filter(item => item.category === "Bar Arpía")}

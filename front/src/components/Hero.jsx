@@ -17,7 +17,7 @@ export function Hero() {
         </h2>
         <button
           onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-          className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50"
+          className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50 cursor-pointer"
         >
           Descubre Nuestros Servicios
         </button>

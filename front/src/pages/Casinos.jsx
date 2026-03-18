@@ -25,7 +25,11 @@ export function Casinos() {
                     infoBanner={true}
                     infoBannerTitle="Compra"
                     infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjeta débito." />
-                <NewsSection section="Comedores" />
+                <NewsSection section="Comedores"
+                    description="Los días Sábados y Domingos, se debe de llenar el siguiente link que se habilitará los días viernes a las
+                                18:00 horas y se cerrará a las 06:50 del día sábado. Personal que no llene el formulario, deberá de esperar a disponibilidad de alimentos."
+                    buttonText={true}
+                />
                 <Contact
                     direction="Primer Piso Casino"
                     phone="31111"

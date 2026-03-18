@@ -201,7 +201,7 @@ export function LoginModal({ isOpen, onClose }) {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="w-full py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                        className="w-full py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
                                         style={{ fontWeight: 700, letterSpacing: "0.05em" }}
                                     >
                                         {isLoading ? (
@@ -439,11 +439,11 @@ export function LoginModal({ isOpen, onClose }) {
                                         ? `Hemos enviado las instrucciones a ${forgotEmail}. Revise su bandeja de entrada.`
                                         : regName
                                             ? `Su solicitud de membresía ha sido recibida, ${regName}. Será contactado en un plazo de 48 horas hábiles.`
-                                            : "Ha ingresado exitosamente al portal de socios del Casino Militar."}
+                                            : "Ha ingresado exitosamente."}
                                 </p>
                                 <button
                                     onClick={handleClose}
-                                    className="px-8 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300"
+                                    className="px-8 py-3 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 cursor-pointer shadow-lg shadow-amber-900/30"
                                     style={{ fontWeight: 700, letterSpacing: "0.05em" }}
                                 >
                                     {forgotEmail && !loginId ? "ENTENDIDO" : regName ? "ACEPTAR" : "IR AL PORTAL"}

@@ -16,7 +16,7 @@ export function AdminNewsManager() {
         imageUrl: "",
         imageAlt: "",
         category: "",
-        isFeatured: false,
+        highlight: false,
     });
 
     const updateNew = async (newId, newData) => {
@@ -67,7 +67,7 @@ export function AdminNewsManager() {
                 imageUrl: newsItem.imageUrl,
                 imageAlt: newsItem.imageAlt,
                 category: newsItem.category || "",
-                isFeatured: newsItem.isFeatured || false,
+                highlight: newsItem.highlight || false,
             });
         } else {
             setEditingNews(null);
@@ -78,7 +78,7 @@ export function AdminNewsManager() {
                 imageUrl: "",
                 imageAlt: "",
                 category: "",
-                isFeatured: false,
+                highlight: false,
             });
         }
         setIsDialogOpen(true);
@@ -172,7 +172,7 @@ export function AdminNewsManager() {
                                             )}
                                         </td>
                                         <td className="px-6 py-4 text-center">
-                                            {newsItem.isFeatured && <Star className="text-amber-400 mx-auto" size={20} fill="currentColor" />}
+                                            {newsItem.highlight && <Star className="text-amber-400 mx-auto" size={20} fill="currentColor" />}
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex items-center justify-end space-x-2">
@@ -312,16 +312,16 @@ export function AdminNewsManager() {
                             <div className="flex items-center space-x-3 pt-2">
                                 <button
                                     type="button"
-                                    onClick={() => setFormData({ ...formData, isFeatured: !formData.isFeatured })}
-                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${formData.isFeatured ? 'bg-amber-500' : 'bg-gray-700'
+                                    onClick={() => setFormData({ ...formData, highlight: !formData.highlight })}
+                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${formData.highlight ? 'bg-amber-500' : 'bg-gray-700'
                                         }`}
                                 >
                                     <span
-                                        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formData.isFeatured ? 'translate-x-6' : 'translate-x-1'
+                                        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formData.highlight ? 'translate-x-6' : 'translate-x-1'
                                             }`}
                                     />
                                 </button>
-                                <label htmlFor="featured" className="text-gray-300 cursor-pointer select-none">
+                                <label htmlFor="highlight" className="text-gray-300 cursor-pointer select-none">
                                     Marcar como noticia destacada
                                 </label>
                             </div>

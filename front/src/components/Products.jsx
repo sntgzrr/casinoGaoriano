@@ -2,7 +2,7 @@ import { ProductCard } from "./ProductCard"
 import { ShoppingBag } from "lucide-react";
 import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
 
-export function Products({ title, description, products, infoBanner = true, infoBannerTitle, infoBannerText }) {
+export function Products({ title, description, products, infoBanner = true, infoBannerTitle, infoBannerText, buttonInfoBanner = false }) {
     const container = useSplitTextAnimation();
     return (
         <section ref={container} className="py-20 px-4 bg-gray-900">
@@ -42,6 +42,13 @@ export function Products({ title, description, products, infoBanner = true, info
                                 {infoBannerText}
                             </p>
                         </div>
+                        {buttonInfoBanner && (
+                            <div className="flex justify-center">
+                                <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50 cursor-pointer">
+                                    Llenar Formulario Desarranche
+                                </button>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

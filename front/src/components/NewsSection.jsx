@@ -2,7 +2,7 @@ import { Calendar, Bell } from "lucide-react";
 import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
 import { useState, useEffect } from "react";
 
-export function NewsSection({ description, buttonText=false }) {
+export function NewsSection({ title1, description1, title2, description2, buttonText=false }) {
     const container = useSplitTextAnimation();
     const [isDisabled, setIsDisabled] = useState(true);
 
@@ -17,8 +17,8 @@ export function NewsSection({ description, buttonText=false }) {
                 setIsDisabled(true);
             }
         };
-        checkTime();
-    }, []);
+        buttonText && checkTime();
+    }, [buttonText]);
 
     return (
         <section ref={container} className="py-20 px-4 bg-gray-900">
@@ -30,9 +30,9 @@ export function NewsSection({ description, buttonText=false }) {
                             <Bell className="text-blue-400" size={24} />
                         </div>
                         <div>
-                            <h3 className="text-xl font-bold text-blue-400 mb-2">Para tener en cuenta</h3>
+                            <h3 className="text-xl font-bold text-blue-400 mb-2">{title1}</h3>
                             <p className="text-gray-300">
-                                {description}
+                                {description1}
                             </p>
                             {buttonText && (
                                 <button
@@ -53,9 +53,9 @@ export function NewsSection({ description, buttonText=false }) {
                             <Calendar className="text-amber-400" size={24} />
                         </div>
                         <div>
-                            <h3 className="text-xl font-bold text-amber-400 mb-2">Horarios de Mantenimiento</h3>
+                            <h3 className="text-xl font-bold text-amber-400 mb-2">{title2}</h3>
                             <p className="text-gray-300">
-                                Durante el mes de marzo, se realizarán trabajos de mantenimiento en la zona de la piscina.
+                                {description2}
                             </p>
                         </div>
                     </div>

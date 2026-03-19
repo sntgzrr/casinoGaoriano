@@ -8,4 +8,5 @@ class News (models.Model):
     imageUrl = models.CharField(max_length=500)
     imageAlt = models.CharField(max_length=100)
     category = models.CharField(max_length=50)
+    highlight = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -5,7 +5,8 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import { useFetchingProductsData } from '../hooks/useServices'
-import Gaori from "../assets/gaori_aniversario.jpg";
+import mall1 from '../assets/mallImages/mall1.png'
+import mall2 from '../assets/mallImages/mall2.png'
 
 export function Mall () {
     const { products } = useFetchingProductsData();
@@ -16,7 +17,7 @@ export function Mall () {
                 <General 
                     title="Mall" 
                     description="Disfruta de una cena todos los días en nuestro Mall." 
-                    images={[Gaori, Gaori]}
+                    images={[mall1, mall2]}
                 />
                 <Products title="Menú" description="Descubre nuestra selección de platos exquisitos."
                     products={products.filter(item => item.category === "Mall")} 

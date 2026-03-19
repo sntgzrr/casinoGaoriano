@@ -25,7 +25,13 @@ export function BarTomo() {
                     infoBanner={true}
                     infoBannerTitle="Compra para Miembros" 
                     infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjetas de débito."/>
-                <NewsSection section="Bar Tomo" />
+                <NewsSection 
+                    section="Bar Tomo" 
+                    title1="Tener en cuenta"
+                    description1="No se permite el ingreso de menores de edad."
+                    title2="Horarios de Inventario"
+                    description2="El bar no abre los días de inventario, que se realizan el primer lunes de cada mes."
+                />
                 <Contact 
                     direction="Segundo Piso Casino" 
                     phone="+1 (555) 123-4567" 

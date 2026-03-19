@@ -15,7 +15,7 @@ export function News({ news }) {
                         </h2>
                     </div>
                     <p className="split-text-words text-gray-400 text-lg max-w-2xl mx-auto">
-                        Mantente informado sobre eventos, actividades y novedades del Casino Gaoriano
+                        Mantente informado sobre eventos, actividades y novedades
                     </p>
                 </div>
 

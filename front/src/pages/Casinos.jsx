@@ -23,11 +23,17 @@ export function Casinos() {
                 <Products title="Menú" description="Descubre nuestra selección de platos exquisitos."
                     products={products.filter(item => item.category === "Casinos")}
                     infoBanner={true}
-                    infoBannerTitle="Compra"
-                    infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjeta débito." />
+                    infoBannerTitle="Desarranche"
+                    infoBannerText="Para realizar el desarranche, por favor llena el formulario en nuestro sitio web. En caso de alguna duda, nuestro equipo estará en el casino encantado de asistirte." 
+                    buttonInfoBanner={true}
+                />
                 <NewsSection section="Comedores"
-                    description="Los días Sábados y Domingos, se debe de llenar el siguiente link que se habilitará los días viernes a las
-                                18:00 horas y se cerrará a las 06:50 del día sábado. Personal que no llene el formulario, deberá de esperar a disponibilidad de alimentos."
+                    title1="Tener en cuenta"
+                    title2="Horarios de atención"
+                    description1="Los días Sábados y Domingos, se debe de llenar el siguiente link que se habilitará los días viernes a las
+                                18:00 horas y se cerrará a las 06:00 del día sábado. Personal que no llene el formulario, deberá de esperar a disponibilidad de alimentos."
+                    description2="Lunes a Viernes: 10:00 - 22:00
+                                Sábados y Domingos: 12:00 - 20:00"
                     buttonText={true}
                 />
                 <Contact

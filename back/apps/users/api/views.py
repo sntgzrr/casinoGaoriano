@@ -6,9 +6,11 @@ from rest_framework_simplejwt.views import (
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
+from ..serializers import CustomTokenObtainPairSerializer
 
 # Create your views here.
 class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
     def post(self, request, *args, **kwargs):
         try: 
             response = super().post(request, *args, **kwargs)

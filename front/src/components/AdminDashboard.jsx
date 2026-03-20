@@ -15,8 +15,8 @@ export function AdminDashboard() {
                         <button
                             onClick={() => setActiveTab("products")}
                             className={`px-6 py-3 rounded-md flex items-center space-x-2 transition-all ${activeTab === "products"
-                                ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg"
-                                : "text-gray-400 hover:text-white"
+                                ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg cursor-pointer"
+                                : "text-gray-400 hover:text-white cursor-pointer"
                                 }`}
                         >
                             <Package size={18} />
@@ -25,8 +25,8 @@ export function AdminDashboard() {
                         <button
                             onClick={() => setActiveTab("news")}
                             className={`px-6 py-3 rounded-md flex items-center space-x-2 transition-all ${activeTab === "news"
-                                ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg"
-                                : "text-gray-400 hover:text-white"
+                                ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg cursor-pointer"
+                                : "text-gray-400 hover:text-white cursor-pointer"
                                 }`}
                         >
                             <Newspaper size={18} />

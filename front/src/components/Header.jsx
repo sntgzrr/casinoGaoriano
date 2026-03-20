@@ -11,7 +11,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const { authenticated, loading } = useAuth();
+  const { authenticated, admin, loading } = useAuth();
 
   const navigate = useNavigate();
   const timeoutRef = useRef(null);
@@ -101,11 +101,13 @@ export function Header() {
                 </div>
               ) : authenticated ? (
                 <>
-                  <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
-                    onClick={() => navigate('/panelDeControl')}
-                  >
-                    Panel de Control
-                  </button>
+                  {admin && (
+                    <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
+                      onClick={() => navigate('/panelDeControl')}
+                    >
+                      Panel de Control
+                    </button>
+                  )}
                   <button
                     onClick={() => handleLogout()}
                     className="flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-black rounded-lg transition-all duration-300 shadow-lg shadow-amber-900/30 cursor-pointer"
@@ -174,9 +176,9 @@ export function Header() {
                 >
                   Información
                 </button>
-                {authenticated && (
+                {admin && (
                   <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
-                    onClick={() => navigate('/panelDeControl')}
+                    onClick={() => {navigate('/panelDeControl')}}
                   >
                     Panel de Control
                   </button>

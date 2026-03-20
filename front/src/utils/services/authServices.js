@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN_URL, REFRESH_URL, IS_AUTHENTICATED_URL, LOGOUT_URL } from '../Constants';
+import { LOGIN_URL, REFRESH_URL, IS_AUTHENTICATED_URL, IS_ADMIN_URL, LOGOUT_URL } from '../Constants';
 
 export async function login(username, password) {
     try {
@@ -30,6 +30,17 @@ export async function logout() {
 export async function isAuthenticated() {
     try {
         await axios.post(IS_AUTHENTICATED_URL, {}, {
+            withCredentials: true
+        });
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+export async function isAdmin() {
+    try {
+        await axios.post(IS_ADMIN_URL, {}, {
             withCredentials: true
         });
         return true;

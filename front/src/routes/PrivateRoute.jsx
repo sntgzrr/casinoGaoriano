@@ -2,13 +2,13 @@ import { useAuth } from "../contexts/useAuth"
 import { useNavigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
-    const { authenticated, loading } = useAuth();
+    const { authenticated, admin, loading } = useAuth();
     const navigate = useNavigate();
 
     if (loading) {
         return null;
     }
-    if (authenticated) {
+    if (authenticated && admin) {
         return children;
     } else {
         navigate("/");

@@ -5,12 +5,10 @@ from rest_framework_simplejwt.views import (
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import IsAuthenticated
-from ..serializers import CustomTokenObtainPairSerializer
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 # Create your views here.
 class CustomTokenObtainPairView(TokenObtainPairView):
-    serializer_class = CustomTokenObtainPairSerializer
     def post(self, request, *args, **kwargs):
         try: 
             response = super().post(request, *args, **kwargs)
@@ -69,6 +67,11 @@ class CustomRefreshTokenView(TokenRefreshView):
 @permission_classes([IsAuthenticated])
 def is_authenticated(request):
     return Response({'is_authenticated': True})
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated, IsAdminUser])
+def is_admin(request):
+    return Response({'is_admin': True})
         
 @api_view(['POST'])
 def log_out(request):

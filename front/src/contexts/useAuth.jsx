@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { isAuthenticated } from "../utils/services/authServices";
+import { isAuthenticated, isAdmin } from "../utils/services/authServices";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
 
     const [authenticated, setAuthenticated] = useState(false);
+    const [admin, setAdmin] = useState(false);
     const [loading, setLoading] = useState(true);
 
     const getAuthenticated = async () => {
@@ -19,11 +20,23 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    const getAdmin = async () => {
+        try {
+            const adminStatus = await isAdmin();
+            setAdmin(adminStatus);
+        } catch {
+            setAdmin(false);
+        } finally {
+            setLoading(false)
+        }
+    }
+
     useEffect(() => {
         getAuthenticated();
+        getAdmin();
     }, [])
     return (
-        <AuthContext.Provider value={{authenticated, loading}}>
+        <AuthContext.Provider value={{authenticated, admin, loading}}>
             {children}
         </AuthContext.Provider>
     )

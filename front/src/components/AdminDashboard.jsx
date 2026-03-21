@@ -1,7 +1,8 @@
-import { Shield, Package, Newspaper } from "lucide-react";
+import { Shield, Package, Newspaper, Users } from "lucide-react";
 import { useState } from "react";
 import { AdminProductsManager } from "./AdminProductsManager";
 import { AdminNewsManager } from "./AdminsNewsManager";
+import { AdminUsersManager } from "./AdminUsersManager";
 
 export function AdminDashboard() {
     const [activeTab, setActiveTab] = useState("products");
@@ -32,11 +33,22 @@ export function AdminDashboard() {
                             <Newspaper size={18} />
                             <span>Noticias</span>
                         </button>
+                        <button
+                            onClick={() => setActiveTab("users")}
+                            className={`px-6 py-3 rounded-md flex items-center space-x-2 transition-all ${activeTab === "users"
+                                    ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg cursor-pointer"
+                                    : "text-gray-400 hover:text-white cursor-pointer"
+                                }`}
+                        >
+                            <Users size={18} />
+                            <span>Usuarios</span>
+                        </button>
                     </div>
 
                     <div className="mt-8">
                         {activeTab === "products" && <AdminProductsManager />}
                         {activeTab === "news" && <AdminNewsManager />}
+                        {activeTab === "users" && <AdminUsersManager />}
                     </div>
                 </div>
             </div>

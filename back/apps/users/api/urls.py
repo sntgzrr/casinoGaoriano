@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CustomTokenObtainPairView, CustomRefreshTokenView, is_admin, log_out, is_authenticated
+from .views import CustomTokenObtainPairView, CustomRefreshTokenView, is_admin, log_out, is_authenticated, UsersViewsSet
 
 urlpatterns = [
     path('auth/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -7,4 +7,5 @@ urlpatterns = [
     path('auth/logout/', log_out, name='log_out'),
     path('auth/authenticated/', is_authenticated, name='is_authenticated'),
     path('auth/admin/', is_admin, name='is_admin'),
+    path('users/', UsersViewsSet.as_view({'get': 'list'}), name='users_list'),
 ]

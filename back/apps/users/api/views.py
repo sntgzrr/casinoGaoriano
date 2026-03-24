@@ -78,7 +78,13 @@ class UsersViewsSet(viewsets.ModelViewSet):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def is_authenticated(request):
-    return Response({'is_authenticated': True})
+    return Response({'is_authenticated': True, 
+        'user': {
+            'id': request.user.id,
+            'username': request.user.username,
+            'email': request.user.email,
+        }
+    })
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated, IsAdminUser])

@@ -8,11 +8,13 @@ export const AuthProvider = ({ children }) => {
     const [authenticated, setAuthenticated] = useState(false);
     const [admin, setAdmin] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [user, setUser] = useState();
 
     const getAuthenticated = async () => {
         try {
             const authStatus = await isAuthenticated();
-            setAuthenticated(authStatus);
+            setAuthenticated(authStatus.is_authenticated);
+            setUser(authStatus.user);
         } catch {
             setAuthenticated(false);
         } finally {
@@ -36,7 +38,7 @@ export const AuthProvider = ({ children }) => {
         getAdmin();
     }, [])
     return (
-        <AuthContext.Provider value={{authenticated, admin, loading}}>
+        <AuthContext.Provider value={{authenticated, admin, loading, user}}>
             {children}
         </AuthContext.Provider>
     )

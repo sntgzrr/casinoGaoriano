@@ -10,3 +10,4 @@ class PaymentViewSet(viewsets.ModelViewSet):
         permissions.IsAuthenticated,
     ]
     serializer_class = PaymentSerializer
+    lookup_field = 'user'

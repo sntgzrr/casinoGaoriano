@@ -97,17 +97,17 @@ export function Header() {
               >
                 Información
               </button>
-              <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
-                onClick={() => setIsTicketsOpen(true)}
-              >
-                Mis Tickets
-              </button>
               {loading ? (
                 <div className="flex items-center gap-2 px-5 py-2 bg-gray-600 text-white rounded-lg cursor-not-allowed">
                   <Loader size={15} className="animate-spin" />
                 </div>
               ) : authenticated ? (
                 <>
+                  <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
+                    onClick={() => setIsTicketsOpen(true)}
+                  >
+                    Mis Tickets
+                  </button>
                   {admin && (
                     <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
                       onClick={() => navigate('/panelDeControl')}

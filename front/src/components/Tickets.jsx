@@ -1,30 +1,11 @@
-import { useState } from "react";
-import { Ticket, Calendar, CheckCircle, X, Download, ChevronLeft, ChevronRight } from "lucide-react";
+import { Ticket, Calendar, CheckCircle, X, Download } from "lucide-react";
+import { useAuth } from "../contexts/useAuth";
+import { useFetchingPaymentDataById } from "../hooks/useServices";
 
 
 export function Tickets({ isOpen, onClose }) {
-    const { user } = {
-        user: {
-            id: "2",
-            name: "Juan Pérez",
-            email: "",
-        }
-    }
-    const [payments, _] = useState([
-        {
-            userId: "2",
-            days: {
-                monday: true,
-                tuesday: false,
-                wednesday: true,
-                thursday: false,
-                friday: true,
-                saturday: false,
-                sunday: false,
-            },
-            week: "2026-13",
-        }
-    ]);
+    const { user } = useAuth();
+    const { payments } = useFetchingPaymentDataById(user ? user.id : null);
 
     if (!isOpen || !user) return null;
 
@@ -73,9 +54,8 @@ export function Tickets({ isOpen, onClose }) {
     const dayNames = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
     const dayKeys = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
-    const currentPayment = payments.find((p) => p.week === currentWeek);
-    const paidDays = currentPayment
-        ? dayKeys.filter((key) => currentPayment.days[key])
+    const paidDays = payments
+        ? dayKeys.filter((key) => payments.days[key])
         : [];
 
     const handlePrint = () => {
@@ -129,7 +109,7 @@ export function Tickets({ isOpen, onClose }) {
                         <div className="flex items-center justify-between">
                             <div>
                                 <div className="text-gray-400 text-sm">Usuario</div>
-                                <div className="text-white font-bold text-lg">{user.name}</div>
+                                <div className="text-white font-bold text-lg">{user.username}</div>
                                 <div className="text-gray-400 text-sm">{user.email}</div>
                             </div>
                             <div className="text-right">

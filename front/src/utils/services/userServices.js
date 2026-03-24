@@ -15,3 +15,14 @@ export async function getUsers() {
          return callRefresh(error, () => getUsers());
     }
 }
+
+export async function getUserById(id) {
+    try {
+        const response = await axios.get(`${DOMAIN_BACK_NAME}/api/users/${id}/`, {
+            withCredentials: true
+        });
+        return response.data;
+    } catch(error) {
+        return callRefresh(error, () => getUserById(id));
+    }
+}

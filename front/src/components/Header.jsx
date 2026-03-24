@@ -6,11 +6,13 @@ import { useRef } from "react";
 import { LoginModal } from "./LoginModal";
 import { useAuth } from "../contexts/useAuth";
 import { logout } from "../utils/services/authServices";
+import { Tickets } from './Tickets'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isTicketsOpen, setIsTicketsOpen] = useState(false);
   const { authenticated, admin, loading } = useAuth();
 
   const navigate = useNavigate();
@@ -95,6 +97,11 @@ export function Header() {
               >
                 Información
               </button>
+              <button className="text-gray-300 hover:text-amber-400 transition-colors cursor-pointer"
+                onClick={() => setIsTicketsOpen(true)}
+              >
+                Mis Tickets
+              </button>
               {loading ? (
                 <div className="flex items-center gap-2 px-5 py-2 bg-gray-600 text-white rounded-lg cursor-not-allowed">
                   <Loader size={15} className="animate-spin" />
@@ -176,9 +183,14 @@ export function Header() {
                 >
                   Información
                 </button>
+                <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
+                  onClick={() => setIsTicketsOpen(true)}
+                >
+                  Mis Tickets
+                </button>
                 {admin && (
                   <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
-                    onClick={() => {navigate('/panelDeControl')}}
+                    onClick={() => { navigate('/panelDeControl') }}
                   >
                     Panel de Control
                   </button>
@@ -213,6 +225,7 @@ export function Header() {
       </header>
 
       <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+      <Tickets isOpen={isTicketsOpen} onClose={() => setIsTicketsOpen(false)} />
     </>
   );
 }

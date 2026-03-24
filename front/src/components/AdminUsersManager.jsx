@@ -12,10 +12,25 @@ export function AdminUsersManager() {
         }
     ]);
     const [selectedUser, setSelectedUser] = useState(null);
-    const [currentWeek, _] = useState("2026-07-13");
     const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
+
+    const getCurrentWeek = (offset) => {
+        const now = new Date();
+        now.setDate(now.getDate() + offset * 7);
+        const year = now.getFullYear();
+        const weekNumber = getWeekNumber(now);
+        return `${year}-${weekNumber.toString().padStart(2, "0")}`;
+    };
+
+    const getWeekNumber = (date) => {
+        const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
+        const pastDaysOfYear = (date.getTime() - firstDayOfYear.getTime()) / 86400000;
+        return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+    };
+
+    const currentWeek = getCurrentWeek(0);
 
     const savePayments = (updatedPayments) => {
         setPayments(updatedPayments);

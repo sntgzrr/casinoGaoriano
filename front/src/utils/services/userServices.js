@@ -1,6 +1,6 @@
 import axios from "axios";
 import { DOMAIN_BACK_NAME } from "../Constants";
-import { callRefresh } from "./authServices";
+import { refreshToken } from "./authServices";
 
 export async function getUsers() {
     try { 
@@ -12,7 +12,7 @@ export async function getUsers() {
         })
         return response.data;
     } catch (error) {
-         return callRefresh(error, () => getUsers());
+         return refreshToken(error, () => getUsers());
     }
 }
 
@@ -23,6 +23,6 @@ export async function getUserById(id) {
         });
         return response.data;
     } catch(error) {
-        return callRefresh(error, () => getUserById(id));
+        return refreshToken(error, () => getUserById(id));
     }
 }

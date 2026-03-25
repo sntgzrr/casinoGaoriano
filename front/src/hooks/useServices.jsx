@@ -55,14 +55,15 @@ export function useFetchingPaymentData() {
     return { payments, setPayments };
 }
 
-export function useFetchingPaymentDataById(paymentId) {
+export function useFetchingPaymentDataById(user) {
     const [payments, setPayments] = useState(null);
     useEffect(() => {
+        if (!user) return;
         const fetchPayment = async () => {
-            const paymentData = await getPaymentById(paymentId);
+            const paymentData = await getPaymentById(user);
             setPayments(paymentData);
         };
         fetchPayment();
-    }, [paymentId]);
+    }, [user]);
     return { payments, setPayments };
 }

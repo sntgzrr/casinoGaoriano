@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DOMAIN_BACK_NAME } from '../Constants';
-import { callRefresh } from './authServices';
+import { refreshToken } from './authServices';
 
 export async function getPayments() {
     try {
@@ -22,7 +22,7 @@ export async function getPayments() {
         }))];
         return formattedData;
     } catch (error) {
-        return callRefresh(error, () => getPaymentById());
+        return refreshToken(error, () => getPaymentById());
     }
 }
 
@@ -46,7 +46,7 @@ export async function getPaymentById(paymentId) {
         }
         return formattedData;
     } catch (error) {
-        return callRefresh(error, () => getPaymentById(paymentId));
+        return refreshToken(error, () => getPaymentById(paymentId));
     }
 }
 
@@ -57,6 +57,6 @@ export async function putPayment(user, paymentData) {
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => putPayment(user, paymentData));
+        return refreshToken(error, () => putPayment(user, paymentData));
     }
 }

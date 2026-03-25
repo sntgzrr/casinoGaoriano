@@ -1,13 +1,45 @@
 import axios from 'axios';
-import { LOGIN_URL, REFRESH_URL, IS_AUTHENTICATED_URL, IS_ADMIN_URL, LOGOUT_URL } from '../Constants';
+import {
+    LOGIN_URL,
+    REFRESH_URL,
+    IS_AUTHENTICATED_URL,
+    IS_ADMIN_URL,
+    LOGOUT_URL
+} from '../Constants';
+
+const api = axios.create({
+    withCredentials: true
+});
+
+export async function refreshToken() {
+    try {
+        const response = await api.post(REFRESH_URL);
+        return response.data.refreshed;
+    } catch {
+        return false;
+    }
+}
+
+async function requestWithRefresh(requestFn) {
+    try {
+        return await requestFn();
+    } catch (error) {
+        if (error.response?.status === 401) {
+            const refreshed = await refreshToken();
+
+            if (refreshed) {
+                return await requestFn();
+            }
+        }
+        throw error;
+    }
+}
 
 export async function login(username, password) {
     try {
-        const response = await axios.post(LOGIN_URL, {
-            username: username,
-            password: password
-        }, {
-            withCredentials: true
+        const response = await api.post(LOGIN_URL, {
+            username,
+            password
         });
         return response.data.success;
     } catch (error) {
@@ -18,9 +50,7 @@ export async function login(username, password) {
 
 export async function logout() {
     try {
-        await axios.post(LOGOUT_URL, {}, {
-            withCredentials: true
-        });
+        await api.post(LOGOUT_URL);
         return true;
     } catch {
         return false;
@@ -29,40 +59,29 @@ export async function logout() {
 
 export async function isAuthenticated() {
     try {
-        const response = await axios.post(IS_AUTHENTICATED_URL, {}, {
-            withCredentials: true
-        });
+        const hasSession = await refreshToken();
+
+        if (!hasSession) {
+            return { is_authenticated: false, user: null };
+        }
+
+        const response = await requestWithRefresh(() =>
+            api.post(IS_AUTHENTICATED_URL)
+        );
+
         return response.data;
     } catch {
-        return false;
+        return { is_authenticated: false, user: null };
     }
 }
 
 export async function isAdmin() {
     try {
-        await axios.post(IS_ADMIN_URL, {}, {
-            withCredentials: true
-        });
-        return true;
+        const response = await requestWithRefresh(() =>
+            api.post(IS_ADMIN_URL)
+        );
+        return response.data.is_admin;
     } catch {
         return false;
     }
-}
-
-export async function refreshToken() {
-    const response = await axios.post(REFRESH_URL, {}, {
-        withCredentials: true
-    });
-    return response.data.refreshed;
-}
-
-export async function callRefresh(error, func) {
-    if (error.response && error.response.status == 401) {
-        const tokenRefreshed = await refreshToken()
-        if (tokenRefreshed) {
-            const retryResponse = await func();
-            return retryResponse.data;
-        }
-    }
-    return false;
 }

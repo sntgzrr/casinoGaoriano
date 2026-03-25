@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DOMAIN_BACK_NAME } from '../Constants';
-import { callRefresh } from './authServices';
+import { refreshToken } from './authServices';
 
 export async function getNews() {
     try {
@@ -19,7 +19,7 @@ export async function postNew(newData) {
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => postNew(newData));
+        return refreshToken(error, () => postNew(newData));
     }
 }
 
@@ -30,7 +30,7 @@ export async function putNew(newId, newData) {
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => putNew(newId, newData));
+        return refreshToken(error, () => putNew(newId, newData));
     }
 }
 
@@ -41,6 +41,6 @@ export async function deleteNew(newId) {
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => deleteNew(newId));
+        return refreshToken(error, () => deleteNew(newId));
     }
 }

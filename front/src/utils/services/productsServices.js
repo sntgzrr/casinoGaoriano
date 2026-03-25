@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { DOMAIN_BACK_NAME } from '../Constants';
-import { callRefresh } from './authServices';
+import { refreshToken } from './authServices';
 
 export async function getProducts() {
     try {
@@ -19,7 +19,7 @@ export async function postProduct(productData) {
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => postProduct(productData));
+        return refreshToken(error, () => postProduct(productData));
     }
 }
 
@@ -30,7 +30,7 @@ export async function putProduct(productId, productData) {
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => putProduct(productId, productData));
+        return refreshToken(error, () => putProduct(productId, productData));
     }
 }
 
@@ -41,6 +41,6 @@ export async function deleteProduct(productId) {
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => deleteProduct(productId));
+        return refreshToken(error, () => deleteProduct(productId));
     }
 }

@@ -2,6 +2,30 @@ import axios from 'axios';
 import { DOMAIN_BACK_NAME } from '../Constants';
 import { callRefresh } from './authServices';
 
+export async function getPayments() {
+    try {
+        const response = await axios.get(`${DOMAIN_BACK_NAME}/api/payments/`, {
+            withCredentials: true
+        });
+        const formattedData = [...response.data.map(payment => ({
+            user: payment.user,
+            days: {
+                monday: payment.monday,
+                tuesday: payment.tuesday,
+                wednesday: payment.wednesday,
+                thursday: payment.thursday,
+                friday: payment.friday,
+                saturday: payment.saturday,
+                sunday: payment.sunday
+            },
+            week: payment.week,
+        }))];
+        return formattedData;
+    } catch (error) {
+        return callRefresh(error, () => getPaymentById());
+    }
+}
+
 export async function getPaymentById(paymentId) {
     try {
         const response = await axios.get(`${DOMAIN_BACK_NAME}/api/payments/${paymentId}/`, {
@@ -26,13 +50,13 @@ export async function getPaymentById(paymentId) {
     }
 }
 
-export async function putPayment(paymentId, paymentData) {
+export async function putPayment(user, paymentData) {
     try {
-        const response = await axios.put(`${DOMAIN_BACK_NAME}/api/payments/${paymentId}/`, paymentData, {
+        const response = await axios.put(`${DOMAIN_BACK_NAME}/api/payments/${user}/`, paymentData, {
             withCredentials: true
         });
         return response.data;
     } catch (error) {
-        return callRefresh(error, () => putPayment(paymentId, paymentData));
+        return callRefresh(error, () => putPayment(user, paymentData));
     }
 }

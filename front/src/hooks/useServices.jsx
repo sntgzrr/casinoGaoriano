@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getNews } from '../utils/services/newsServices';
 import { getProducts } from '../utils/services/productsServices';
 import { getUsers } from '../utils/services/userServices';
-import { getPaymentById} from '../utils/services/paymentsServices';
+import { getPayments, getPaymentById} from '../utils/services/paymentsServices';
 
 export function useFetchingNewsData() {
     const [news, setNews] = useState([]);
@@ -41,6 +41,18 @@ export function useFetchingUsersData() {
         fetchUsers();
     }, []);
     return { users, setUsers }
+}
+
+export function useFetchingPaymentData() {
+    const [payments, setPayments] = useState([]);
+    useEffect(() => {
+        const fetchPayments = async () => {
+            const paymentsData = await getPayments();
+            setPayments(paymentsData);
+        };
+        fetchPayments();
+    }, []);
+    return { payments, setPayments };
 }
 
 export function useFetchingPaymentDataById(paymentId) {

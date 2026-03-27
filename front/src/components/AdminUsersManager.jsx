@@ -133,7 +133,7 @@ export function AdminUsersManager() {
                                 <th className="text-left px-6 py-4 text-amber-400 font-semibold">Usuario</th>
                                 <th className="text-left px-6 py-4 text-amber-400 font-semibold">Fecha Registro</th>
                                 <th className="text-center px-6 py-4 text-amber-400 font-semibold">Pagos Semana</th>
-                                <th className="text-right px-6 py-4 text-amber-400 font-semibold">Acciones</th>
+                                <th className="text-right px-6 py-4 text-amber-400 font-semibold">Editar Pagos</th>
                             </tr>
                         </thead>
                         <tbody>

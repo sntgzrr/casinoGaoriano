@@ -12,10 +12,15 @@ export function AdminUsersManager() {
     const [localPayments, setLocalPayments] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [isPaymentDialogOpen, setIsPaymentDialogOpen] = useState(false);
+    const [displayedUsers, setDisplayedUsers] = useState(users);
 
     useEffect(() => {
         setLocalPayments(payments);
     }, [payments]);
+
+    useEffect(() => {
+        setDisplayedUsers(users);
+    }, [users]);
 
     const currentWeek = useMemo(() => {
         const now = new Date();
@@ -92,6 +97,10 @@ export function AdminUsersManager() {
         setIsPaymentDialogOpen(true);
     }, []);
 
+    const handleSearchChange = (e) => {
+        setDisplayedUsers(users.filter(u => u.username.toLowerCase().includes(e.target.value.toLowerCase())));
+    }
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
@@ -107,6 +116,14 @@ export function AdminUsersManager() {
                 </div>
             </div>
 
+            <div>
+                <input 
+                    placeholder="Buscar usuario..." 
+                    className="bg-gray-800 text-gray-400 placeholder:text-gray-500 border border-amber-900/30 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 rounded-lg px-4 py-2 w-full max-w-sm transition-colors" 
+                    onChange={handleSearchChange}
+                />
+            </div>
+
             {/* Users Table */}
             <div className="bg-gray-900 rounded-xl border border-amber-900/30 overflow-hidden">
                 <div className="overflow-x-auto">
@@ -120,14 +137,14 @@ export function AdminUsersManager() {
                             </tr>
                         </thead>
                         <tbody>
-                            {users.length === 0 ? (
+                            {displayedUsers.length === 0 ? (
                                 <tr>
                                     <td colSpan={6} className="text-center px-6 py-12 text-gray-400">
                                         No hay usuarios registrados.
                                     </td>
                                 </tr>
                             ) : (
-                                users.map((user) => {
+                                displayedUsers.map((user) => {
                                     const userPayment = getUserPayment(user.id, currentWeek);
                                     const paidDays = userPayment ? Object.values(userPayment.days).filter(Boolean).length : 0;
 

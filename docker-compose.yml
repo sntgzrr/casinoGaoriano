@@ -17,7 +17,7 @@ services:
       retries: 10
       start_period: 5s
 
-  web:
+  back:
     build: ./back
     container_name: django_app
     ports:

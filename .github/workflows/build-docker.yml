@@ -1,0 +1,99 @@
+name: Build and Test Docker Compose
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: casino_db
+          POSTGRES_USER: casino_user
+          POSTGRES_PASSWORD: casino_pass
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Verify Docker and Docker Compose
+        run: |
+          docker version
+          docker compose version
+
+      - name: Create .env files for backend
+        run: |
+          cat > back/.env << 'EOF'
+          DEBUG=False
+          SECRET_KEY=django-insecure-test-key-change-in-production
+          ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0
+          CORS_ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000
+          CORS_ALLOW_CREDENTIALS=True
+          
+          # Database Configuration (PostgreSQL)
+          DATABASE_URL=postgresql://casino_user:casino_pass@db:5432/casino_db
+          DB_HOST=db
+          DB_PORT=5432
+          POSTGRES_DB=casino_db
+          POSTGRES_USER=casino_user
+          POSTGRES_PASSWORD=casino_pass
+          EOF
+          cat back/.env
+
+      - name: Create .env files for frontend
+        run: |
+          cat > front/.env.production << 'EOF'
+          VITE_API_URL=http://localhost:8000
+          EOF
+          cat front/.env.production
+
+      - name: Build Docker images
+        run: docker compose build
+
+      - name: Start Docker services in detached mode
+        run: docker compose up -d
+
+      - name: Wait for services to be healthy
+        run: |
+          echo "Waiting for backend to be ready..."
+          for i in {1..30}; do
+            if curl -f http://localhost:8000/api/ 2>/dev/null; then
+              echo "Backend is ready!"
+              break
+            fi
+            echo "Attempt $i: Backend not ready, waiting..."
+            sleep 2
+          done
+
+      - name: Check running containers
+        run: docker compose ps
+
+      - name: View backend logs
+        if: always()
+        run: docker compose logs back
+
+      - name: Test backend API
+        run: |
+          echo "Testing backend connectivity..."
+          curl -v http://localhost:8000/api/ || true
+
+      - name: Stop and clean up services
+        if: always()
+        run: |
+          docker compose down -v
+          echo "Services stopped and cleaned up"

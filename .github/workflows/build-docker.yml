@@ -31,9 +31,9 @@ jobs:
           CORS_ALLOW_CREDENTIALS=True
           
           # Database Configuration (PostgreSQL)
-          DATABASE_URL=postgresql://casino_user:casino_pass@db:5433/casino_db
+          DATABASE_URL=postgresql://casino_user:casino_pass@db:5432/casino_db
           DB_HOST=db
-          DB_PORT=5433
+          DB_PORT=5432
           POSTGRES_DB=casino_db
           POSTGRES_USER=casino_user
           POSTGRES_PASSWORD=casino_pass
@@ -48,10 +48,10 @@ jobs:
           cat front/.env.production
 
       - name: Build Docker images
-        run: docker compose build
+        run: docker compose --env-file back/.env build
 
       - name: Start Docker services in detached mode
-        run: docker compose up -d
+        run: docker compose --env-file back/.env up -d
 
       - name: Wait for services to be healthy
         run: |
@@ -66,19 +66,30 @@ jobs:
           done
 
       - name: Check running containers
-        run: docker compose ps
+        run: docker compose --env-file back/.env ps
 
-      - name: View backend logs
-        if: always()
-        run: docker compose logs back
-
-      - name: Test backend API
+      - name: Verify backend health
         run: |
           echo "Testing backend connectivity..."
-          curl -v http://localhost:8000/api/ || true
+          curl -v http://localhost:8000/api/ || echo "✗ Backend unreachable"
+
+      - name: Verify database connection
+        run: |
+          source back/.env
+          echo "Testing database connection with user: $POSTGRES_USER, db: $POSTGRES_DB"
+          docker compose --env-file back/.env exec -T db pg_isready -U $POSTGRES_USER -d $POSTGRES_DB || echo "⚠ Database health check failed"
+
+      - name: View logs on failure
+        if: failure()
+        run: |
+          echo "=== Backend Logs ==="
+          docker compose --env-file back/.env logs back
+          echo ""
+          echo "=== Database Logs ==="
+          docker compose --env-file back/.env logs db
 
       - name: Stop and clean up services
         if: always()
         run: |
-          docker compose down -v
-          echo "Services stopped and cleaned up"
+          docker compose --env-file back/.env down -v
+          echo "✓ Services stopped and cleaned up"

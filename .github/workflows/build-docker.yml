@@ -60,13 +60,10 @@ jobs:
           cat > front/.env.production << 'EOF'
           VITE_API_URL=http://localhost:8000
           EOF
-          cat front/.env.production
+          cat front/.env.production 
 
-      - name: Build Docker images
-        run: docker compose build
-
-      - name: Start Docker services in detached mode
-        run: docker compose up -d
+      - name: Build and start Docker services
+        run: docker compose up --build
 
       - name: Wait for services to be healthy
         run: |

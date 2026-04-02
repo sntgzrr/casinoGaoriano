@@ -42,10 +42,10 @@ jobs:
 
       - name: Create .env files for frontend
         run: |
-          cat > front/.env.production << 'EOF'
+          cat > front/.env << 'EOF'
           VITE_API_URL=http://localhost:8000
           EOF
-          cat front/.env.production
+          cat front/.env
 
       - name: Build Docker images
         run: docker compose --env-file back/.env build

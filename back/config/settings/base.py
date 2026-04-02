@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.products',
     'apps.users',
     'apps.payments',
+    'django_crontab',
 ]
 
 REST_FRAMEWORK = {
@@ -71,6 +72,10 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+CRONJOBS = [
+    ('0 23 * * 0', 'apps.payments.management.commands.reset_week_days'),
+]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',

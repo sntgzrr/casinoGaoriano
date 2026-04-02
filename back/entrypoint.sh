@@ -43,6 +43,11 @@ python manage.py migrate --noinput
 
 # echo "Collecting static files..."
 # python manage.py collectstatic --noinput
+echo "Setting up cron jobs..."
+python manage.py crontab add
+
+echo "Starting cron service..."
+service cron start
 
 echo "Starting Django application..."
 exec "$@"

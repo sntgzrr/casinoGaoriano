@@ -5,3 +5,4 @@ psycopg2-binary
 django-environ
 django-cors-headers
 djangorestframework-simplejwt
+django-crontab

@@ -4,7 +4,7 @@
 FROM node:20-alpine as build
 
 # Accept build argument for API URL
-ARG VITE_API_URL=$VITE_API_URL
+ARG VITE_API_URL=https://casinogaoriano-production.up.railway.app
 ENV VITE_API_URL=$VITE_API_URL
 
 # Set working directory

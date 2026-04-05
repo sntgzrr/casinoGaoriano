@@ -7,11 +7,17 @@ import {
     LOGOUT_URL
 } from '../Constants';
 
-const api = axios.create({
+export const api = axios.create({
     withCredentials: true
 });
 
 let accessToken = null;
+
+
+export const setAccessToken = (token) => {
+    accessToken = token;
+};
+
 
 api.interceptors.request.use((config) => {
     if (accessToken) {
@@ -19,6 +25,7 @@ api.interceptors.request.use((config) => {
     }
     return config;
 });
+
 
 export async function refreshToken() {
     try {
@@ -30,39 +37,35 @@ export async function refreshToken() {
     }
 }
 
+
 async function requestWithRefresh(requestFn) {
     try {
         return await requestFn();
     } catch (error) {
         if (error.response?.status === 401) {
             const refreshed = await refreshToken();
-
-            if (refreshed) {
-                return await requestFn();
-            }
+            if (refreshed) return await requestFn();
         }
         throw error;
     }
 }
 
+
 export async function login(username, password) {
     try {
-        const response = await api.post(LOGIN_URL, {
-            username,
-            password
-        });
+        const response = await api.post(LOGIN_URL, { username, password });
         accessToken = response.data.access;
         return response.data.success;
-    } catch (error) {
-        console.error('Error during login:', error);
+    } catch {
         return false;
     }
 }
 
+
 export async function logout() {
     try {
         await api.post(LOGOUT_URL);
-        accessToken = null
+        accessToken = null;
         return true;
     } catch {
         return false;
@@ -72,15 +75,11 @@ export async function logout() {
 export async function isAuthenticated() {
     try {
         const hasSession = await refreshToken();
-
-        if (!hasSession) {
-            return { is_authenticated: false, user: null };
-        }
+        if (!hasSession) return { is_authenticated: false, user: null };
 
         const response = await requestWithRefresh(() =>
             api.post(IS_AUTHENTICATED_URL)
         );
-
         return response.data;
     } catch {
         return { is_authenticated: false, user: null };

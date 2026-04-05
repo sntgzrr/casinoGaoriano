@@ -1,10 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { isAuthenticated, isAdmin } from "../utils/services/authServices";
+import { isAuthenticated, isAdmin, setAccessToken } from "../utils/services/authServices";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-
     const [authenticated, setAuthenticated] = useState(false);
     const [admin, setAdmin] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -19,23 +18,25 @@ export const AuthProvider = ({ children }) => {
                     setAuthenticated(false);
                     setAdmin(false);
                     setUser(null);
+                    setAccessToken(null);
                     return;
                 }
 
                 setAuthenticated(true);
                 setUser(authStatus.user);
+                setAccessToken(authStatus.access || null);
+
                 if (authStatus.user.admin) {
                     const adminStatus = await isAdmin();
                     setAdmin(adminStatus);
                 } else {
                     setAdmin(false);
                 }
-
-            } catch (error) {
-                console.error("Auth init error:", error);
+            } catch {
                 setAuthenticated(false);
                 setAdmin(false);
                 setUser(null);
+                setAccessToken(null);
             } finally {
                 setLoading(false);
             }
@@ -45,12 +46,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{
-            authenticated,
-            admin,
-            loading,
-            user
-        }}>
+        <AuthContext.Provider value={{ authenticated, admin, loading, user }}>
             {children}
         </AuthContext.Provider>
     );

@@ -12,10 +12,7 @@ from .base import *
 DEBUG = False
 
 # Explicitly set allowed hosts (should be defined in .env)
-ALLOWED_HOSTS = env.list(
-    'ALLOWED_HOSTS',
-    default=['localhost', '127.0.0.1'],
-)
+ALLOWED_HOSTS = ['frontend-production-45e0.up.railway.app']
 
 # ============================================================================
 # DATABASE: PostgreSQL for prod development
@@ -55,6 +52,12 @@ SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', default=True)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 TRUSTED_PROXIES = env.list('TRUSTED_PROXIES', default=[])
+
+# ============================================================================
+# CORS CONFIGURATION
+# ============================================================================
+
+CORS_ALLOWED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
 
 
 # ============================================================================

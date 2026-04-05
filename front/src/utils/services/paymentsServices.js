@@ -1,23 +1,40 @@
 import axios from 'axios';
 import { DOMAIN_BACK_NAME } from '../Constants';
 import { refreshToken } from './authServices';
+import { getAccessToken } from './authServices';
 
 export const api = axios.create();
 
-let accessToken = null;
-
 api.interceptors.request.use((config) => {
-  if (accessToken) {
-    config.headers.Authorization = `Bearer ${accessToken}`;
-  }
-  return config;
+    const token = getAccessToken();
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
 });
+
+async function requestWithRefresh(requestFn) {
+    try {
+        return await requestFn();
+    } catch (error) {
+        if (error.response?.status === 401) {
+            const refreshed = await refreshToken();
+
+            if (refreshed) {
+                return await requestFn();
+            }
+        }
+        throw error;
+    }
+}
 
 export async function getPayments() {
     try {
-        const response = await api.get(`${DOMAIN_BACK_NAME}/api/payments/`);
-        accessToken = response.data.access;
-        const formattedData = [...response.data.map(payment => ({
+        const response = await requestWithRefresh(() =>
+            api.get(`${DOMAIN_BACK_NAME}/api/payments/`)
+        );
+
+        return response.data.map(payment => ({
             user: payment.user,
             days: {
                 monday: payment.monday,
@@ -29,18 +46,21 @@ export async function getPayments() {
                 sunday: payment.sunday
             },
             week: payment.week,
-        }))];
-        return formattedData;
+        }));
+
     } catch (error) {
-        return refreshToken(error, () => getPaymentById());
+        console.error(error);
+        return [];
     }
 }
 
 export async function getPaymentById(paymentId) {
     try {
-        const response = await api.get(`${DOMAIN_BACK_NAME}/api/payments/${paymentId}/`)
-        accessToken = response.data.access;
-        const formattedData = {
+        const response = await requestWithRefresh(() =>
+            api.get(`${DOMAIN_BACK_NAME}/api/payments/${paymentId}/`)
+        );
+
+        return {
             user: response.data.user,
             days: {
                 monday: response.data.monday,
@@ -52,19 +72,24 @@ export async function getPaymentById(paymentId) {
                 sunday: response.data.sunday
             },
             week: response.data.week,
-        }
-        return formattedData;
+        };
+
     } catch (error) {
-        return refreshToken(error, () => getPaymentById(paymentId));
+        console.error(error);
+        return null;
     }
 }
 
 export async function putPayment(user, paymentData) {
     try {
-        const response = await api.put(`${DOMAIN_BACK_NAME}/api/payments/${user}/`, paymentData);
-        accessToken = response.data.access;
+        const response = await requestWithRefresh(() =>
+            api.put(`${DOMAIN_BACK_NAME}/api/payments/${user}/`, paymentData)
+        );
+
         return response.data;
+
     } catch (error) {
-        return refreshToken(error, () => putPayment(user, paymentData));
+        console.error(error);
+        return null;
     }
 }

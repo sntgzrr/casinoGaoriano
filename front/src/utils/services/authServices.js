@@ -11,6 +11,8 @@ export const api = axios.create();
 
 let accessToken = null;
 let freshToken = sessionStorage.getItem("freshToken") || null;
+let isRefreshing = false;
+let refreshPromise = null;
 
 export const setAccessToken = (token) => { accessToken = token; };
 export const setfreshToken = (token) => {
@@ -42,8 +44,21 @@ export async function refreshToken() {
   }
 }
 
+async function ensureToken() {
+  if (!getAccessToken()) {
+    if (!isRefreshing) {
+      isRefreshing = true;
+      refreshPromise = refreshToken().finally(() => {
+        isRefreshing = false;
+      });
+    }
+    await refreshPromise;
+  }
+}
+
 
 export async function requestWithRefresh(requestFn) {
+  ensureToken();
   try {
     return await requestFn();
   } catch (error) {
@@ -89,8 +104,8 @@ export async function isAuthenticated() {
 }
 
 export async function isAdmin() {
-    const refreshed = await refreshToken();
-    if (!refreshed) return { is_admin: false };
+  const refreshed = await refreshToken();
+  if (!refreshed) return { is_admin: false };
   try {
     const response = await requestWithRefresh(() => api.post(IS_ADMIN_URL));
     return response.data.is_admin;

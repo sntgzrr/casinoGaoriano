@@ -11,9 +11,19 @@ const api = axios.create({
     withCredentials: true
 });
 
+let accessToken = null;
+
+api.interceptors.request.use((config) => {
+    if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`;
+    }
+    return config;
+});
+
 export async function refreshToken() {
     try {
         const response = await api.post(REFRESH_URL);
+        accessToken = response.data.access;
         return response.data.refreshed;
     } catch {
         return false;
@@ -41,6 +51,7 @@ export async function login(username, password) {
             username,
             password
         });
+        accessToken = response.data.access;
         return response.data.success;
     } catch (error) {
         console.error('Error during login:', error);
@@ -51,6 +62,7 @@ export async function login(username, password) {
 export async function logout() {
     try {
         await api.post(LOGOUT_URL);
+        accessToken = null
         return true;
     } catch {
         return false;

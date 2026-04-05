@@ -21,7 +21,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             refresh_token = tokens['refresh']
 
             res = Response()
-            res.data = {'success': True}
+            res.data = {'success': True, 'access': access_token}
 
             res.set_cookie(
                 key='access_token',
@@ -47,13 +47,17 @@ class CustomRefreshTokenView(TokenRefreshView):
     def post(self, request, *args, **kwargs):
         try:
             refresh_token = request.COOKIES.get('refresh_token')
+
+            if not refresh_token:
+                return Response({'refreshed': False})
+
             request.data['refresh'] = refresh_token
             response = super().post(request, *args, **kwargs)
             tokens = response.data
             access_token = tokens['access']
 
             res = Response()
-            res.data = {'refreshed': True}
+            res.data = {'refreshed': True, 'access': access_token}
 
             res.set_cookie(
                 key='access_token',

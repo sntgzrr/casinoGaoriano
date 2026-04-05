@@ -12,7 +12,7 @@ from .base import *
 DEBUG = False
 
 # Explicitly set allowed hosts (should be defined in .env)
-ALLOWED_HOSTS = ['https://frontend-production-45e0.up.railway.app/']
+ALLOWED_HOSTS = ['https://frontend-production-45e0.up.railway.app']
 
 # ============================================================================
 # DATABASE: PostgreSQL for prod development

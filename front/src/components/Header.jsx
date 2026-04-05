@@ -183,39 +183,42 @@ export function Header() {
                 >
                   Información
                 </button>
-                <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
-                  onClick={() => setIsTicketsOpen(true)}
-                >
-                  Mis Tickets
-                </button>
-                {admin && (
-                  <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
-                    onClick={() => { navigate('/panelDeControl') }}
-                  >
-                    Panel de Control
-                  </button>
-                )}
-              </div>
 
-              <div className="px-4 pt-2 pb-1">
-                {!authenticated && (
+                {loading ? (
+                  <div className="flex items-center gap-2 px-5 py-2 bg-gray-600 text-white rounded-lg cursor-not-allowed">
+                    <Loader size={15} className="animate-spin" />
+                  </div>
+                ) : authenticated ? (
+                  <>
+                    <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
+                      onClick={() => setIsTicketsOpen(true)}
+                    >
+                      Mis Tickets
+                    </button>
+                    {admin && (
+                      <button className="block w-full text-left px-4 py-2 text-gray-300 hover:text-amber-400 hover:bg-amber-900/10 transition-colors"
+                        onClick={() => navigate('/panelDeControl')}
+                      >
+                        Panel de Control
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleLogout()}
+                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 text-black rounded-lg"
+                      style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
+                    >
+                      <LogIn size={15} />
+                      CERRAR SESIÓN
+                    </button>
+                  </>
+                ) : (
                   <button
-                    onClick={() => { setIsLoginOpen(true); setIsMenuOpen(false); }}
+                    onClick={() => setIsLoginOpen(true)}
                     className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 text-black rounded-lg"
                     style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
                   >
                     <LogIn size={15} />
                     INICIAR SESIÓN
-                  </button>
-                )}
-                {authenticated && (
-                  <button
-                    onClick={() => handleLogout()}
-                    className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-amber-600 to-amber-500 text-black rounded-lg"
-                    style={{ fontWeight: 700, fontSize: "0.8rem", letterSpacing: "0.05em" }}
-                  >
-                    <LogIn size={15} />
-                    CERRAR SESIÓN
                   </button>
                 )}
               </div>

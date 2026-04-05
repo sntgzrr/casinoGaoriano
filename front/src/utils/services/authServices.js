@@ -89,10 +89,12 @@ export async function isAuthenticated() {
 }
 
 export async function isAdmin() {
+    const refreshed = await refreshToken();
+    if (!refreshed) return { is_admin: false };
   try {
     const response = await requestWithRefresh(() => api.post(IS_ADMIN_URL));
     return response.data.is_admin;
   } catch {
-    return false;
+    return { is_admin: false };
   }
 }

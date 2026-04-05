@@ -67,8 +67,8 @@ CSRF_TRUSTED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
 # Cookies CONFIGURATION
 # ============================================================================
 
-SESSION_COOKIE_DOMAIN = 'casinogaoriano-production.up.railway.app'
-CSRF_COOKIE_DOMAIN = 'casinogaoriano-production.up.railway.app'
+SESSION_COOKIE_DOMAIN = '.frontend-production-45e0.up.railway.app'
+CSRF_COOKIE_DOMAIN = '.frontend-production-45e0.up.railway.app'
 
 # ============================================================================
 # PASSWORD VALIDATION (stricter in production)

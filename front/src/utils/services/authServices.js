@@ -8,11 +8,10 @@ import {
 } from '../Constants';
 
 export const api = axios.create({
-    withCredentials: true
+    withCredentials: true,
 });
 
 let accessToken = null;
-
 
 export const setAccessToken = (token) => {
     accessToken = token;
@@ -27,7 +26,7 @@ api.interceptors.request.use((config) => {
 });
 
 
-export async function refreshToken() {
+export async function refreshTokenFunc() {
     try {
         const response = await api.post(REFRESH_URL);
         accessToken = response.data.access;
@@ -43,13 +42,12 @@ async function requestWithRefresh(requestFn) {
         return await requestFn();
     } catch (error) {
         if (error.response?.status === 401) {
-            const refreshed = await refreshToken();
+            const refreshed = await refreshTokenFunc();
             if (refreshed) return await requestFn();
         }
         throw error;
     }
 }
-
 
 export async function login(username, password) {
     try {
@@ -60,7 +58,6 @@ export async function login(username, password) {
         return false;
     }
 }
-
 
 export async function logout() {
     try {
@@ -73,13 +70,11 @@ export async function logout() {
 }
 
 export async function isAuthenticated() {
-    try {
-        const hasSession = await refreshToken();
-        if (!hasSession) return { is_authenticated: false, user: null };
+    const refreshed = await refreshTokenFunc();
+    if (!refreshed) return { is_authenticated: false, user: null };
 
-        const response = await requestWithRefresh(() =>
-            api.post(IS_AUTHENTICATED_URL)
-        );
+    try {
+        const response = await requestWithRefresh(() => api.post(IS_AUTHENTICATED_URL));
         return response.data;
     } catch {
         return { is_authenticated: false, user: null };
@@ -88,9 +83,7 @@ export async function isAuthenticated() {
 
 export async function isAdmin() {
     try {
-        const response = await requestWithRefresh(() =>
-            api.post(IS_ADMIN_URL)
-        );
+        const response = await requestWithRefresh(() => api.post(IS_ADMIN_URL));
         return response.data.is_admin;
     } catch {
         return false;

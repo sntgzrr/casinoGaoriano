@@ -98,3 +98,6 @@ export async function isAdmin() {
     return { is_admin: false };
   }
 }
+
+export const getAccessToken = () => accessToken;
+export const getFreshToken = () => freshToken;

@@ -43,7 +43,7 @@ export async function refreshToken() {
 }
 
 
-async function requestWithRefresh(requestFn) {
+export async function requestWithRefresh(requestFn) {
   try {
     return await requestFn();
   } catch (error) {

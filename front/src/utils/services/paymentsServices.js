@@ -2,6 +2,7 @@ import axios from 'axios';
 import { DOMAIN_BACK_NAME } from '../Constants';
 import { refreshToken } from './authServices';
 import { getAccessToken } from './authServices';
+import { requestWithRefresh } from './authServices';
 
 export const api = axios.create();
 
@@ -12,21 +13,6 @@ api.interceptors.request.use((config) => {
     }
     return config;
 });
-
-async function requestWithRefresh(requestFn) {
-    try {
-        return await requestFn();
-    } catch (error) {
-        if (error.response?.status === 401) {
-            const refreshed = await refreshToken();
-
-            if (refreshed) {
-                return await requestFn();
-            }
-        }
-        throw error;
-    }
-}
 
 export async function getPayments() {
     try {
@@ -49,8 +35,7 @@ export async function getPayments() {
         }));
 
     } catch (error) {
-        console.error(error);
-        return [];
+        return refreshToken(error, () => getPayments());
     }
 }
 
@@ -75,8 +60,7 @@ export async function getPaymentById(paymentId) {
         };
 
     } catch (error) {
-        console.error(error);
-        return null;
+        return refreshToken(error, () => getPaymentById(paymentId));
     }
 }
 
@@ -89,7 +73,6 @@ export async function putPayment(user, paymentData) {
         return response.data;
 
     } catch (error) {
-        console.error(error);
-        return null;
+        return refreshToken(error, () => putPayment(user, paymentData));
     }
 }

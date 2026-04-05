@@ -11,8 +11,8 @@ from .base import *
 
 DEBUG = False
 
-# Explicitly set allowed hosts (should be defined in .env)
-ALLOWED_HOSTS = ['frontend-production-45e0.up.railway.app', 'casinogaoriano-production.up.railway.app']
+# Explicitly set the backend host only. The frontend origin is enforced via CORS.
+ALLOWED_HOSTS = ['casinogaoriano-production.up.railway.app']
 
 # ============================================================================
 # DATABASE: PostgreSQL for prod development
@@ -57,7 +57,9 @@ TRUSTED_PROXIES = env.list('TRUSTED_PROXIES', default=[])
 # CORS CONFIGURATION
 # ============================================================================
 
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
 
 
 # ============================================================================

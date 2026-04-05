@@ -2,11 +2,21 @@ import axios from 'axios';
 import { DOMAIN_BACK_NAME } from '../Constants';
 import { refreshToken } from './authServices';
 
+export const api = axios.create();
+
+let accessToken = null;
+
+api.interceptors.request.use((config) => {
+  if (accessToken) {
+    config.headers.Authorization = `Bearer ${accessToken}`;
+  }
+  return config;
+});
+
 export async function getPayments() {
     try {
-        const response = await axios.get(`${DOMAIN_BACK_NAME}/api/payments/`, {
-            withCredentials: true
-        });
+        const response = await api.get(`${DOMAIN_BACK_NAME}/api/payments/`);
+        accessToken = response.data.access;
         const formattedData = [...response.data.map(payment => ({
             user: payment.user,
             days: {
@@ -28,9 +38,8 @@ export async function getPayments() {
 
 export async function getPaymentById(paymentId) {
     try {
-        const response = await axios.get(`${DOMAIN_BACK_NAME}/api/payments/${paymentId}/`, {
-            withCredentials: true
-        });
+        const response = await api.get(`${DOMAIN_BACK_NAME}/api/payments/${paymentId}/`)
+        accessToken = response.data.access;
         const formattedData = {
             user: response.data.user,
             days: {
@@ -52,9 +61,8 @@ export async function getPaymentById(paymentId) {
 
 export async function putPayment(user, paymentData) {
     try {
-        const response = await axios.put(`${DOMAIN_BACK_NAME}/api/payments/${user}/`, paymentData, {
-            withCredentials: true
-        });
+        const response = await api.put(`${DOMAIN_BACK_NAME}/api/payments/${user}/`, paymentData);
+        accessToken = response.data.access;
         return response.data;
     } catch (error) {
         return refreshToken(error, () => putPayment(user, paymentData));

@@ -26,7 +26,7 @@ api.interceptors.request.use((config) => {
 });
 
 
-export async function refreshTokenFunc() {
+export async function refreshToken() {
     try {
         const response = await api.post(REFRESH_URL);
         accessToken = response.data.access;
@@ -42,7 +42,7 @@ async function requestWithRefresh(requestFn) {
         return await requestFn();
     } catch (error) {
         if (error.response?.status === 401) {
-            const refreshed = await refreshTokenFunc();
+            const refreshed = await refreshToken();
             if (refreshed) return await requestFn();
         }
         throw error;
@@ -70,7 +70,7 @@ export async function logout() {
 }
 
 export async function isAuthenticated() {
-    const refreshed = await refreshTokenFunc();
+    const refreshed = await refreshToken();
     if (!refreshed) return { is_authenticated: false, user: null };
 
     try {

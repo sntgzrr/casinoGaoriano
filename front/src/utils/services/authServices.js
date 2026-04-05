@@ -7,16 +7,13 @@ import {
     LOGOUT_URL
 } from '../Constants';
 
-export const api = axios.create({
-    withCredentials: true,
-});
+export const api = axios.create();
 
 let accessToken = null;
+let freshToken = null;
 
-export const setAccessToken = (token) => {
-    accessToken = token;
-};
-
+export const setAccessToken = (token) => { accessToken = token; };
+export const setfreshToken = (token) => { freshToken = token; };
 
 api.interceptors.request.use((config) => {
     if (accessToken) {
@@ -27,8 +24,9 @@ api.interceptors.request.use((config) => {
 
 
 export async function refreshToken() {
+    if (!freshToken) return false;
     try {
-        const response = await api.post(REFRESH_URL);
+        const response = await api.post(REFRESH_URL, { refresh: freshToken });
         accessToken = response.data.access;
         return response.data.refreshed;
     } catch {
@@ -53,6 +51,7 @@ export async function login(username, password) {
     try {
         const response = await api.post(LOGIN_URL, { username, password });
         accessToken = response.data.access;
+        freshToken = response.data.refresh;
         return response.data.success;
     } catch {
         return false;
@@ -60,9 +59,10 @@ export async function login(username, password) {
 }
 
 export async function logout() {
+    accessToken = null;
+    freshToken = null;
     try {
         await api.post(LOGOUT_URL);
-        accessToken = null;
         return true;
     } catch {
         return false;
@@ -70,7 +70,7 @@ export async function logout() {
 }
 
 export async function isAuthenticated() {
-    const refreshed = await refreshToken();
+    const refreshed = await freshToken();
     if (!refreshed) return { is_authenticated: false, user: null };
 
     try {

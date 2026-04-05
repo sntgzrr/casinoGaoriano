@@ -3,6 +3,8 @@ Production Settings
 Override base settings with production-specific configurations
 """
 
+import os
+
 from .base import *
 
 # ============================================================================
@@ -19,7 +21,9 @@ ALLOWED_HOSTS = ['casinogaoriano-production.up.railway.app']
 # ============================================================================
 
 DATABASES = {
-    'default': env.db()
+    'default': env.db(
+        default=os.getenv('DATABASE_URL'),
+    )
 }
 
 # ============================================================================

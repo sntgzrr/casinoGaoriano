@@ -21,13 +21,12 @@ class CustomTokenObtainPairView(TokenObtainPairView):
                 'access': access_token
             })
 
-            # Refresh token en cookie HttpOnly
             res.set_cookie(
                 key='refresh_token',
                 value=refresh_token,
                 httponly=True,
                 secure=True,
-                samesite='Strict',
+                samesite='None',
                 path='/api/token/refresh/'
             )
             return res

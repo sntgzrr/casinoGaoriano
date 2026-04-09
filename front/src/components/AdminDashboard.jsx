@@ -12,7 +12,7 @@ export function AdminDashboard() {
             <div className="container mx-auto max-w-7xl px-4 py-10">
                 {/* Custom Tabs */}
                 <div className="w-full">
-                    <div className="bg-gray-900 border border-amber-900/30 p-1 rounded-lg inline-flex space-x-1">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-1 md:grid-rows-1">
                         <button
                             onClick={() => setActiveTab("products")}
                             className={`px-6 py-3 rounded-md flex items-center space-x-2 transition-all ${activeTab === "products"

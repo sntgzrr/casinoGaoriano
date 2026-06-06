@@ -8,6 +8,7 @@ import { Casinos } from '../pages/Casinos'
 import { BarArpia } from '../pages/BarArpia'
 import { BarSkyline } from '../pages/BarSkyline'
 import { PanelDeControl } from '../pages/PanelDeControl'
+import { TicketView } from '../pages/TicketView'
 import PrivateRoute from './PrivateRoute'
 
 export function PageRoutes() {
@@ -22,6 +23,7 @@ export function PageRoutes() {
             <Route path='/barArpia' element={<BarArpia />} />
             <Route path='/barSkyline' element={<BarSkyline />} />
             <Route path='/panelDeControl' element={<PrivateRoute><PanelDeControl /></PrivateRoute>} />
+            <Route path='/ticket' element={<TicketView />} />
         </Routes>
     )
 }

@@ -61,10 +61,6 @@ export function Tickets({ isOpen, onClose }) {
         ? dayKeys.filter((key) => payments.days[key])
         : [];
 
-    const handlePrint = () => {
-        window.print();
-    };
-
     function buildTicketPayload(userId, userName, week, dayKey) {
         const ticketCode = `${week}-${dayKey.substring(0, 3).toUpperCase()}`;
         const params = new URLSearchParams({
@@ -290,13 +286,6 @@ export function Tickets({ isOpen, onClose }) {
                                         <div className="text-gray-400 text-sm">Total de tickets generados</div>
                                         <div className="text-white font-bold text-lg">{paidDays.length} tickets</div>
                                     </div>
-                                    <button
-                                        onClick={handlePrint}
-                                        className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-lg transition-all shadow-lg"
-                                    >
-                                        <Download size={16} />
-                                        <span>Imprimir Tickets</span>
-                                    </button>
                                 </div>
                             </div>
                         )}

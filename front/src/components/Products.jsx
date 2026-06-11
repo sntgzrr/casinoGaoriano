@@ -1,8 +1,9 @@
 import { ProductCard } from "./ProductCard"
 import { ShoppingBag } from "lucide-react";
 import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
+import QR from "../assets/qr.png";
 
-export function Products({ title, description, products, infoBanner = true, infoBannerTitle, infoBannerText, buttonInfoBanner = false }) {
+export function Products({ title, description, products, infoBanner = true, infoBannerTitle, infoBannerText, qrCode = false }) {
     const container = useSplitTextAnimation();
     return (
         <section ref={container} className="py-20 px-4 bg-gray-900">
@@ -41,14 +42,8 @@ export function Products({ title, description, products, infoBanner = true, info
                             <p className="text-gray-300 mb-6">
                                 {infoBannerText}
                             </p>
+                            {qrCode && <img src={QR} alt="QR" className="w-48 mx-auto" />}
                         </div>
-                        {buttonInfoBanner && (
-                            <div className="flex justify-center">
-                                <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50 cursor-pointer">
-                                    Llenar Formulario Desarranche
-                                </button>
-                            </div>
-                        )}
                     </div>
                 )}
             </div>

@@ -24,10 +24,10 @@ export function CaraCara() {
                     products={products.filter(item => item.category === "Cara Cara")} 
                     infoBanner={true} 
                     infoBannerTitle="Compra" 
-                    infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente Nequi." />
+                    infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente pagos por Nequi o llave Bre-B." />
                 <NewsSection section="Cara Cara" 
                     title1="Tener en cuenta"
-                    description1="El uso de Cara Cara es exclusivo para personal órganico y familiares militares."
+                    description1="El uso de Cara Cara es de uso para cualquier persona que visite el casino. Sin embargo, el consumo de los productos ofrecidos en Cara Cara es exclusivo para el personal Familiar Militar y Personal Orgánico."
                     title2="Días de Atención"
                     description2="Los días en que abre el servicio de comidas Cara Cara dependerá de disponibilidad de productos."
                 />
@@ -35,7 +35,10 @@ export function CaraCara() {
                     direction="Primer Piso Casino" 
                     phone="31111" 
                     contact="ESALO" 
-                    schedule="J: 18:00 - 21:00 / V: 18:00 - 21:00" 
+                    schedule={`Lunes a Viernes: 
+                                18:00 - 21:00
+                                Sábados y Domingos: 
+                                08:00 - 21:00`} 
                     showPhone={false}
                 />
             </main>

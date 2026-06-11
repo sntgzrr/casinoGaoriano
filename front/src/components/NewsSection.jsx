@@ -2,7 +2,7 @@ import { Calendar, Bell } from "lucide-react";
 import { useSplitTextAnimation } from "../hooks/useSplitTextAnimation";
 import { useState, useEffect } from "react";
 
-export function NewsSection({ title1, description1, title2, description2, buttonText=false }) {
+export function NewsSection({ title1, description1, title2, description2, buttonText = false, buttonInfoBanner = false }) {
     const container = useSplitTextAnimation();
     const [isDisabled, setIsDisabled] = useState(true);
 
@@ -41,8 +41,8 @@ export function NewsSection({ title1, description1, title2, description2, button
                                     className={isDisabled ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform shadow-lg shadow-amber-500/50 cursor-not-allowed opacity-50 mt-4"
                                         : "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50 cursor-pointer mt-4"}
                                 >
-                                Ingresar al Link
-                            </button> )}
+                                    Ingresar al Link
+                                </button>)}
                         </div>
                     </div>
                 </div>
@@ -59,6 +59,12 @@ export function NewsSection({ title1, description1, title2, description2, button
                             </p>
                         </div>
                     </div>
+                    {buttonInfoBanner && (
+                        <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105 shadow-lg shadow-amber-500/50 cursor-pointer mt-4 ml-15"
+                        onClick={() => window.open("https://forms.gle/9Zt3n2h7mL8sHj5b6", "_blank")}>
+                            Llenar Formulario Desarranche
+                        </button>
+                    )}
                 </div>
             </div>
         </section>

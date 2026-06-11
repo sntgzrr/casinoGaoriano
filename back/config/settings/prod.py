@@ -12,7 +12,7 @@ from .base import *
 DEBUG = False
 
 # Explicitly set the backend host only. The frontend origin is enforced via CORS.
-ALLOWED_HOSTS = ['casino-gaoriano.up.railway.app']
+ALLOWED_HOSTS = ['casinogaoriano-production.up.railway.app']
 
 # ============================================================================
 # DATABASE: PostgreSQL for prod development
@@ -59,16 +59,16 @@ TRUSTED_PROXIES = env.list('TRUSTED_PROXIES', default=[])
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = ['https://casino-gaoriano.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://casino-gaoriano.up.railway.app']
+CORS_ALLOWED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
 
 
 # ============================================================================
 # Cookies CONFIGURATION
 # ============================================================================
 
-SESSION_COOKIE_DOMAIN = '.casino-gaoriano.up.railway.app'
-CSRF_COOKIE_DOMAIN = '.casino-gaoriano.up.railway.app'
+SESSION_COOKIE_DOMAIN = '.frontend-production-45e0.up.railway.app'
+CSRF_COOKIE_DOMAIN = '.frontend-production-45e0.up.railway.app'
 
 # ============================================================================
 # PASSWORD VALIDATION (stricter in production)

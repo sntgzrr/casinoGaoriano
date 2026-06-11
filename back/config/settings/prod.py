@@ -59,16 +59,16 @@ TRUSTED_PROXIES = env.list('TRUSTED_PROXIES', default=[])
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://frontend-production-45e0.up.railway.app']
+CORS_ALLOWED_ORIGINS = ['https://casinogaoriano.com']
+CSRF_TRUSTED_ORIGINS = ['https://casinogaoriano.com']
 
 
 # ============================================================================
 # Cookies CONFIGURATION
 # ============================================================================
 
-SESSION_COOKIE_DOMAIN = '.frontend-production-45e0.up.railway.app'
-CSRF_COOKIE_DOMAIN = '.frontend-production-45e0.up.railway.app'
+SESSION_COOKIE_DOMAIN = '.casinogaoriano.com'
+CSRF_COOKIE_DOMAIN = '.casinogaoriano.com'
 
 # ============================================================================
 # PASSWORD VALIDATION (stricter in production)

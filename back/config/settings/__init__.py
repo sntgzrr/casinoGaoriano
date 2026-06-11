@@ -1,2 +1,3 @@
 # Determine which settings file to use based on DEBUG environment variable
-from .prod import *
+from .prod import * # -> Prod Env
+# from .dev import * -> Dev Env

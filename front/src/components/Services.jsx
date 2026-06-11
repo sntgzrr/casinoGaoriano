@@ -45,12 +45,12 @@ export function Services() {
                     <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
                         <Sparkles className="text-amber-400 mb-4" size={32} />
                         <h4 className="text-xl font-bold text-amber-400 mb-2">Servicio VIP</h4>
-                        <p className="text-gray-400">Atención personalizada las 24 horas del día para garantizar tu comodidad.</p>
+                        <p className="text-gray-400">Atención personalizada para garantizar tu comodidad.</p>
                     </div>
                     <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
                         <Sparkles className="text-amber-400 mb-4" size={32} />
                         <h4 className="text-xl font-bold text-amber-400 mb-2">Eventos Exclusivos</h4>
-                        <p className="text-gray-400">Torneos, fiestas temáticas y presentaciones de artistas internacionales.</p>
+                        <p className="text-gray-400">Actividades especiales, fiestas temáticas y presentaciones.</p>
                     </div>
                     <div className="bg-gradient-to-br from-amber-900/20 to-amber-950/20 p-8 rounded-xl border border-amber-900/30">
                         <Sparkles className="text-amber-400 mb-4" size={32} />

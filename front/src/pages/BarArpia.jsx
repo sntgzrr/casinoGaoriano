@@ -22,14 +22,21 @@ export function BarArpia() {
                 <Products title="Productos" description="Descubre nuestra selección exclusiva de productos y bebidas."
                     products={products.filter(item => item.category === "Bar Arpía")}
                     infoBanner={true}
-                    infoBannerTitle="Compra para Miembros"
-                    infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjetas de débito." />
-                <NewsSection section="Bar Arpía" />
+                    infoBannerTitle="Compra"
+                    infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjetas de débito y crédito." />
+                <NewsSection section="Bar Arpía" 
+                    title1="Tener en cuenta"
+                    description1="En el bar Arpía ofrecemos una variedad de snacks y aperitivos para complementar tu experiencia. Disfruta de nuestras deliciosas opciones mientras te relajas en el ambiente único del Bar Arpía."
+                    title2="Horarios de atención"
+                    description2="El bar Arpía está abierto de lunes a viernes, con horarios específicos para cada día. Consulta nuestros horarios para planificar tu visita y disfrutar de nuestros productos y servicios."
+                />
                 <Contact
                     direction="ESCOM"
                     phone="+1 (555) 123-4567"
                     contact="ESALO"
-                    schedule="L-V: 10:00 - 12:00"
+                    schedule={`Lunes, martes, jueves y viernes: 
+                                09:00 - 11:00
+                                15:00 - 17:00`} 
                     showPhone={false}
                 />
             </main>

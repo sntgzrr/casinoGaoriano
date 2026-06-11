@@ -62,7 +62,11 @@ export function Contact({
                             <Clock className="text-white" size={28} />
                         </div>
                         <h3 className="text-xl font-bold text-amber-400 mb-2">Horario</h3>
-                        <p className="text-gray-300">{schedule}</p>
+                        <div className="text-gray-300 text-sm leading-relaxed">
+                            {schedule.split('\n').map((line, index) => (
+                                <div key={index}>{line}</div>
+                            ))}
+                        </div>
                     </div>
                 )}
 

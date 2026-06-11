@@ -15,28 +15,36 @@ export function BarTomo() {
         <div className='min-h-screen bg-black text-white'>
             <Header />
             <main>
-                <General 
-                    title="Bar Tomo" 
+                <General
+                    title="Bar Tomo"
                     description="Bar Tomo es el lugar perfecto para disfrutar de una experiencia única en el Casino Gaoriano. Disfruta de una amplia selección de productos."
                     images={[barTomo2, barTomo3, barTomo4]}
                 />
-                <Products title="Productos" description="Descubre nuestra selección exclusiva de productos y bebidas." 
-                    products={products.filter(item => item.category === "Bar Tomo")} 
+                <Products title="Productos" description="Descubre nuestra selección exclusiva de productos y bebidas."
+                    products={products.filter(item => item.category === "Bar Tomo")}
                     infoBanner={true}
-                    infoBannerTitle="Compra para Miembros" 
-                    infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos únicamente tarjetas de débito."/>
-                <NewsSection 
-                    section="Bar Tomo" 
-                    title1="Tener en cuenta"
-                    description1="No se permite el ingreso de menores de edad."
+                    infoBannerTitle="Compra"
+                    infoBannerText="Todos nuestros productos están disponibles para el personal Familiar Militar y Personal Orgánico. Aceptamos tarjetas de débito y crédito, excepto tarjetas American Express."
+                    />
+                <NewsSection
+                    section="Bar Tomo"
+                    title1="Horarios de atención"
+                    description1="El bar Tomo está abierto de lunes a domingo, con horarios específicos para cada día. Consulta nuestros horarios para planificar tu visita y disfrutar de nuestros productos y servicios."
                     title2="Horarios de Inventario"
-                    description2="El bar no abre los días de inventario, que se realizan el primer lunes de cada mes."
+                    description2="El bar Tomo realiza inventarios periódicos para garantizar la calidad y disponibilidad de nuestros productos. Durante estos períodos, es posible que algunos productos no estén disponibles temporalmente. Agradecemos tu comprensión mientras trabajamos para ofrecerte la mejor experiencia posible."
                 />
-                <Contact 
-                    direction="Segundo Piso Casino" 
-                    phone="+1 (555) 123-4567" 
-                    contact="ESALO" 
-                    schedule="L-V: 13:00 - 15:00 / 18:00 - 21:00 S-D: 8:00 - 21:00" 
+                <Contact
+                    direction="Segundo Piso Casino"
+                    phone="+1 (555) 123-4567"
+                    contact="ESALO"
+                    schedule={`Lunes, martes, jueves y viernes: 
+                                12:00 - 14:00
+                                18:00 - 21:00 
+                            Miércoles: 
+                                18:00 - 21:00
+                            Fin de semana:
+                                10:00 - 15:00
+                                17:00 - 21:00`}
                     showPhone={false}
                 />
             </main>

@@ -20,15 +20,16 @@ export function Piscina() {
                 <NewsSection 
                     section="Piscina" 
                     title1="Tener en cuenta"
-                    description1="El uso de la piscina es exlusivo para personal órganico y familiares militares."
+                    description1="El uso de la piscina es exlusivo para personal órganico y familiares militares. Es importante seguir las normas de seguridad y respetar los horarios establecidos para garantizar una experiencia agradable para todos los usuarios."
                     title2="Horarios de Mantenimiento"
-                    description2="Durante el mes de marzo, se realizarán trabajos de mantenimiento en la zona de la piscina."
+                    description2="Durante los horarios de mantenimiento, la piscina no estará disponible para su uso. Agradecemos tu comprensión mientras trabajamos para mantener nuestras instalaciones en óptimas condiciones. Por favor estar pendiente de los horarios en nuestro grupo de WhatsApp."
                 />
                 <Contact 
                     direction="Primer Piso Casino" 
                     phone="31111"
                     contact="SETGA"
-                    schedule="L-D 10:00 - 22:00"
+                    schedule={`Lunes a Domingo: 
+                                10:00 - 22:00`} 
                     showPhone={false}
                 />
             </main>

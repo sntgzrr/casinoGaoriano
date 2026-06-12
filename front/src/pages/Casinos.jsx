@@ -32,7 +32,7 @@ export function Casinos() {
                     title1="Tener en cuenta"
                     title2="Link Desarranche"
                     description1="Los días Sábados y Domingos, se debe de llenar el siguiente link que se habilitará a las
-                                18:00 horas y se cerrará a las 05:00 horas. Personal que no llene el formulario, deberá de esperar a disponibilidad de alimentos."
+                                18:00 horas y se cerrará a las 23:00 horas del día anterior. Personal que no llene el formulario, deberá de esperar a disponibilidad de alimentos."
                     description2="Para realizar el desarranche, por favor llena el formulario en nuestro link de Google Forms. Recuerda llenar el link con anticipación."
                     buttonText={true}
                     buttonInfoBanner={true}

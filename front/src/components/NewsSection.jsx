@@ -11,7 +11,7 @@ export function NewsSection({ title1, description1, title2, description2, button
             const now = new Date();
             const day = now.getDay();
             const hours = now.getHours();
-            if (day >= 5 && day <= 6 && hours >= 18 && hours <= 6) {
+            if (day == 5 || day == 6 && (hours >= 18 && hours <= 23)) {
                 setIsDisabled(false);
             } else {
                 setIsDisabled(true);

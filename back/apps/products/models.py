@@ -4,7 +4,7 @@ from django.db import models
 class Product (models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    price = models.CharField(max_length=255, blank=True)
+    price = models.CharField(max_length=50, blank=True)
     badge = models.CharField(max_length=20, blank=True)
     imageUrl = models.URLField(max_length=500)
     imageAlt = models.CharField(max_length=255)

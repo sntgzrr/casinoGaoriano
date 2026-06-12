@@ -103,7 +103,7 @@ export function AdminProductsManager() {
     };
 
     const handleSaveProduct = async () => {
-        if (!formData.name || !formData.description || !formData.category) {
+        if (!formData.name || !formData.description || !formData.price) {
             // toast.error("Por favor completa todos los campos obligatorios");
             return;
         }
@@ -273,7 +273,7 @@ export function AdminProductsManager() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label htmlFor="price" className="block text-gray-300 mb-1 font-medium">
-                                        Precio
+                                        Precio *
                                     </label>
                                     <input
                                         id="price"

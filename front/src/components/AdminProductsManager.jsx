@@ -103,7 +103,7 @@ export function AdminProductsManager() {
     };
 
     const handleSaveProduct = async () => {
-        if (!formData.name || !formData.description || !formData.price) {
+        if (!formData.name || !formData.description || !formData.category) {
             // toast.error("Por favor completa todos los campos obligatorios");
             return;
         }

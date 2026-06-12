@@ -19,7 +19,7 @@ function parseQrPayload(payload) {
     const parsed = JSON.parse(decoded)
     return {
       uid: parsed.uid,
-      name: parsed.name,
+      username: parsed.username,
       week: parsed.week,
       day: parsed.day,
       code: parsed.code,
@@ -33,20 +33,20 @@ export function TicketView() {
   const [searchParams] = useSearchParams()
   const payloadParam = searchParams.get('payload')
   const uid = searchParams.get('uid')
-  const name = searchParams.get('name')
+  const username = searchParams.get('username')
   const week = searchParams.get('week')
   const day = searchParams.get('day')
   const code = searchParams.get('code')
 
   const ticket = parseQrPayload(payloadParam) || {
     uid,
-    name,
+    username,
     week,
     day,
     code,
   }
 
-  const hasTicket = ticket && ticket.uid && ticket.name && ticket.week && ticket.day && ticket.code
+  const hasTicket = ticket && ticket.uid && ticket.username && ticket.week && ticket.day && ticket.code
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white px-4 py-10 sm:px-6 lg:px-8">
@@ -73,7 +73,7 @@ export function TicketView() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-2xl bg-slate-950/80 border border-slate-800 p-5">
                   <p className="text-sm text-gray-400 uppercase tracking-[0.25em]">Usuario</p>
-                  <p className="mt-2 text-lg font-semibold text-white">{ticket.name}</p>
+                  <p className="mt-2 text-lg font-semibold text-white">{ticket.username}</p>
                   <p className="text-sm text-gray-400 mt-1">{ticket.uid}</p>
                 </div>
                 <div className="rounded-2xl bg-slate-950/80 border border-slate-800 p-5">

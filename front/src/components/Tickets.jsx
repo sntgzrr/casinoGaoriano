@@ -61,11 +61,11 @@ export function Tickets({ isOpen, onClose }) {
         ? dayKeys.filter((key) => payments.days[key])
         : [];
 
-    function buildTicketPayload(userId, userName, week, dayKey) {
+    function buildTicketPayload(userId, username, week, dayKey) {
         const ticketCode = `${week}-${dayKey.substring(0, 3).toUpperCase()}`;
         const params = new URLSearchParams({
             uid: userId,
-            name: userName,
+            username: username,
             week,
             day: dayKey,
             code: ticketCode,
@@ -189,7 +189,7 @@ export function Tickets({ isOpen, onClose }) {
                                     const dayIndex = dayKeys.indexOf(dayKey);
                                     const dateInfo = weekDates[dayIndex];
                                     const ticketCode = `${currentWeek}-${dayKey.substring(0, 3).toUpperCase()}`;
-                                    const qrPayload = buildTicketPayload(user.email, user.name, currentWeek, dayKey);
+                                    const qrPayload = buildTicketPayload(user.email, user.username, currentWeek, dayKey);
 
                                     return (
                                         <div

@@ -9,6 +9,8 @@ export function NewsHighlightCard({ title, category, description, date, imageUrl
                         src={imageUrl}
                         alt={title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                     />
                     <div className="absolute top-4 left-4 bg-amber-500 text-black px-4 py-2 rounded-full text-sm font-bold">
                         {category}

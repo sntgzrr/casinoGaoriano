@@ -40,7 +40,13 @@ export function Carrousel({ images }) {
                     <div className='flex transition-transform duration-500' style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
                         {images.map((src, idx) => (
                             <div key={idx} className='h-full w-full flex-shrink-0'>
-                                <img src={src} alt={`Slide ${idx + 1}`} className='h-full w-full object-cover' />
+                                <img
+                                    src={src}
+                                    alt={`Slide ${idx + 1}`}
+                                    className='h-full w-full object-cover'
+                                    loading={idx === 0 ? 'eager' : 'lazy'}
+                                    decoding="async"
+                                />
                             </div>
                         ))}
                     </div>

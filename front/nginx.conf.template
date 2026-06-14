@@ -9,7 +9,21 @@ server {
         try_files $uri $uri/ /index.html;
     }
 
+    # Aggressive caching for images and other static assets
+    location ~* \.(jpg|jpeg|png|gif|ico|svg|webp|avif)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable, max-age=31536000";
+        access_log off;
+    }
+
+    # Cache JS/CSS assets (Vite hashes filenames)
+    location ~* \.(js|css|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable, max-age=31536000";
+        access_log off;
+    }
+
     gzip on;
-    gzip_types text/css application/javascript application/json image/svg+xml text/plain;
+    gzip_types text/css application/javascript application/json image/svg+xml text/plain image/webp;
     gzip_min_length 256;
 }

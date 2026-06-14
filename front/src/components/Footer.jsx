@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center space-x-2">
-            <img src={LogoGaori} alt="Logo Gaoriano" className="w-10 h-10" />
+            <img src={LogoGaori} alt="Logo Gaoriano" className="w-10 h-10" loading="lazy" decoding="async" />
             <span className="text-lg font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
               Gaoriano
             </span>

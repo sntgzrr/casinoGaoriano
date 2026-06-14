@@ -8,6 +8,8 @@ export function NewsCard({ imageUrl, imageAlt, category, date, title, descriptio
                     src={imageUrl}
                     alt={imageAlt}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
 

@@ -5,9 +5,9 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import { useFetchingProductsData } from '../hooks/useServices'
-import casino1 from '../assets/casinoImages/casino1.png'
-import casino2 from '../assets/casinoImages/casino2.png'
-import casino3 from '../assets/casinoImages/casino3.png'
+import casino1 from '../assets/casinoImages/casino1.avif'
+import casino2 from '../assets/casinoImages/casino2.avif'
+import casino3 from '../assets/casinoImages/casino3.avif'
 
 export function Casinos() {
     const { products } = useFetchingProductsData();

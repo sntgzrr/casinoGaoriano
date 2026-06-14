@@ -5,9 +5,9 @@ import { General } from '../components/General';
 import { Products } from '../components/Products';
 import { NewsSection } from '../components/NewsSection';
 import { useFetchingProductsData } from '../hooks/useServices';
-import barTomo2 from "../assets/barTomoImages/barTomo2.png";
-import barTomo3 from "../assets/barTomoImages/barTomo3.png";
-import barTomo4 from "../assets/barTomoImages/barTomo4.png";
+import barTomo2 from "../assets/barTomoImages/barTomo2.avif";
+import barTomo3 from "../assets/barTomoImages/barTomo3.avif";
+import barTomo4 from "../assets/barTomoImages/barTomo4.avif";
 
 export function BarTomo() {
     const { products } = useFetchingProductsData();

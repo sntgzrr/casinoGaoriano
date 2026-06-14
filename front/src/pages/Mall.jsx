@@ -5,8 +5,8 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import { useFetchingProductsData } from '../hooks/useServices'
-import mall1 from '../assets/mallImages/mall1.png'
-import mall2 from '../assets/mallImages/mall2.png'
+import mall1 from '../assets/mallImages/mall1.avif'
+import mall2 from '../assets/mallImages/mall2.avif'
 
 export function Mall() {
     const { products } = useFetchingProductsData();

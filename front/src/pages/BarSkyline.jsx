@@ -3,8 +3,8 @@ import { Footer } from '../components/Footer'
 import { Contact } from '../components/Contact';
 import { General } from '../components/General';
 import { NewsSection } from '../components/NewsSection';
-import barSkyline1 from "../assets/barSkylineImages/barSkyline1.jpg";
-import barSkyline2 from "../assets/barSkylineImages/barSkyline2.png";
+import barSkyline1 from "../assets/barSkylineImages/barSkyline1.avif";
+import barSkyline2 from "../assets/barSkylineImages/barSkyline2.avif";
 
 export function BarSkyline() {
     return (

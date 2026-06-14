@@ -5,9 +5,9 @@ import { NewsSection } from '../components/NewsSection'
 import { Products } from '../components/Products'
 import { Footer } from '../components/Footer'
 import { useFetchingProductsData } from '../hooks/useServices'
-import caraCara1 from '../assets/caraCaraImages/caraCara1.png'
-import caraCara2 from '../assets/caraCaraImages/caraCara2.png'
-import caraCara3 from '../assets/caraCaraImages/caraCara3.png'
+import caraCara1 from '../assets/caraCaraImages/caraCara1.avif'
+import caraCara2 from '../assets/caraCaraImages/caraCara2.avif'
+import caraCara3 from '../assets/caraCaraImages/caraCara3.avif'
 
 export function CaraCara() {
     const { products } = useFetchingProductsData();

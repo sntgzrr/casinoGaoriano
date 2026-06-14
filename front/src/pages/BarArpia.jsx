@@ -5,8 +5,8 @@ import { General } from '../components/General';
 import { Products } from '../components/Products';
 import { NewsSection } from '../components/NewsSection';
 import { useFetchingProductsData } from '../hooks/useServices'
-import barApia1 from "../assets/barArpiaImages/barArpia1.png";
-import barApia2 from "../assets/barArpiaImages/barArpia2.png";
+import barApia1 from "../assets/barArpiaImages/barArpia1.avif";
+import barApia2 from "../assets/barArpiaImages/barArpia2.avif";
 
 export function BarArpia() {
     const { products } = useFetchingProductsData();

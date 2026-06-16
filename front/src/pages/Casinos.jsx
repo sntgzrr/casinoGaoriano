@@ -30,12 +30,11 @@ export function Casinos() {
                 />
                 <NewsSection section="Comedores"
                     title1="Tener en cuenta"
-                    title2="Link Desarranche"
+                    title2="Desarranche"
                     description1="Los días Sábados y Domingos, se debe de llenar el siguiente link que se habilitará a las
                                 18:00 horas y se cerrará a las 23:00 horas del día anterior. Personal que no llene el formulario, deberá de esperar a disponibilidad de alimentos."
-                    description2="Para realizar el desarranche, por favor llena el formulario en nuestro link de Google Forms. Recuerda llenar el link con anticipación."
+                    description2="Para realizar el desarranche, por favor recordar acercarse al casino para llenar el libro. El desarranche se realiza en el casino, por lo que se recomienda llegar con anticipación para evitar aglomeraciones."
                     buttonText={true}
-                    buttonInfoBanner={true}
                 />
                 <Contact
                     direction="Primer Piso Casino"

@@ -103,7 +103,7 @@ export function AdminProductsManager() {
     };
 
     const handleSaveProduct = async () => {
-        if (!formData.name || !formData.description || !formData.price) {
+        if (!formData.name || !formData.description ) {
             // toast.error("Por favor completa todos los campos obligatorios");
             return;
         }
@@ -181,7 +181,7 @@ export function AdminProductsManager() {
                                             </div>
                                         </td>
                                         <td className="px-6 py-4 text-gray-300 max-w-md truncate">{product.description}</td>
-                                        <td className="px-6 py-4 text-amber-400 font-semibold">{product.price}</td>
+                                        <td className="px-6 py-4 text-amber-400 font-semibold">${product.price ? product.price : '-'}</td>
                                         <td className="px-6 py-4"><span className="bg-blue-500/20 text-amber-400 px-3 py-1 rounded-full text-sm">{product.category}</span></td>
                                         <td className="px-6 py-4">
                                             {product.badge ? (
@@ -273,7 +273,7 @@ export function AdminProductsManager() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label htmlFor="price" className="block text-gray-300 mb-1 font-medium">
-                                        Precio *
+                                        Precio
                                     </label>
                                     <input
                                         id="price"
@@ -281,7 +281,7 @@ export function AdminProductsManager() {
                                         value={formData.price}
                                         onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                                         className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                                        placeholder="$0.00"
+                                        placeholder="0.00"
                                     />
                                 </div>
                                 <div>

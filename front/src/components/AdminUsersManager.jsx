@@ -211,7 +211,7 @@ export function AdminUsersManager() {
                         </div>
 
                         <div className="px-6 py-6">
-                            <div className="grid grid-cols-7 gap-3">
+                            <div className="grid grid-cols-4 grid-rows-2 gap-3 md:grid-cols-7 md:grid-rows-1">
                                 {dayKeys.map((dayKey, index) => {
                                     const userPayment = getUserPayment(selectedUser.id, currentWeek);
                                     const isPaid = userPayment?.days[dayKey];

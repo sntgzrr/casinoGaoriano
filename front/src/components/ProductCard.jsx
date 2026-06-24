@@ -15,9 +15,11 @@ export function ProductCard({ name, description, price, imageUrl, imageAlt, badg
           </div>
         )}
 
-        <div className="absolute bottom-4 left-4">
-          <div className="text-3xl font-bold text-white">{price}</div>
-        </div>
+        {price && (
+          <div className="absolute bottom-4 left-4">
+            <div className="text-3xl font-bold text-white">${price}</div>
+          </div>
+        )}
       </div>
 
       <div className="p-6 space-y-4">

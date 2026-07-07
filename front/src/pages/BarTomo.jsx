@@ -38,13 +38,13 @@ export function BarTomo() {
                     phone="+1 (555) 123-4567"
                     contact="ESALO"
                     schedule={`Lunes, martes, jueves y viernes: 
-                                12:00 - 14:00
+                                12:30 - 14:00
                                 18:00 - 21:00 
                             Miércoles: 
-                                18:00 - 21:00
+                                17:00 - 21:00
                             Fin de semana:
-                                10:00 - 15:00
-                                17:00 - 21:00`}
+                                10:30 - 14:30
+                                18:00 - 21:00`}
                     showPhone={false}
                 />
             </main>

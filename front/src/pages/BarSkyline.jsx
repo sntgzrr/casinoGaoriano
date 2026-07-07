@@ -25,7 +25,7 @@ export function BarSkyline() {
                 <Contact
                     direction="Segundo Piso Casino"
                     phone="+1 (555) 123-4567"
-                    contact="ECEA"
+                    contact="ESCEA"
                     schedule={`Jueves a Domingo: 
                                 18:00 - 21:00`} 
                     showPhone={false}
